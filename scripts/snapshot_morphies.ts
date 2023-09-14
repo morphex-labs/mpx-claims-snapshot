@@ -1,13 +1,10 @@
 import { ethers } from "hardhat";
 import morphiesAbi from '../abi/morphies.json';
-import stakingAbi from '../abi/nftStaking.json';
+import stakingAbi from '../abi/nft_staking.json';
 import * as fs from 'node:fs/promises';
-import { Holder, MORPHIES_ADDRESS, STAKING_ADDRESS } from "./helpers";
+import { Holder, MORPHIES_ADDRESS, MORPHIES_STAKING_ADDRESS } from "../utils/constants";
 import { BigNumberish } from "ethers";
 const cliProgress = require('cli-progress');
-// MPX single staked & held in wallet for both Fantom and BSC. 
-// MPX-FTM LPs on FVM and Equalizer
-// MPX-BNB on Thena
 
 var owners: { [id: string]: Holder; } = {}
 
@@ -42,14 +39,14 @@ async function snapshotStakers() {
   let stakingBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
   let staking = await ethers.getContractAt(
     stakingAbi,
-    STAKING_ADDRESS,
+    MORPHIES_STAKING_ADDRESS,
     undefined);
 
-  let stakedNfts = owners[STAKING_ADDRESS].ids.length;
+  let stakedNfts = owners[MORPHIES_STAKING_ADDRESS].ids.length;
   stakingBar.start(stakedNfts, 0);
   for (let i = 0; i < stakedNfts; i++) {
     stakingBar.update(i + 1);
-    let id = owners[STAKING_ADDRESS].ids[i];
+    let id = owners[MORPHIES_STAKING_ADDRESS].ids[i];
     let owner = await staking.tokenOwner(id);
     addNftToOwner(owner, id);
   }
@@ -102,7 +99,7 @@ async function main() {
   await snapshotStakers();
 
   // Delete staking contract from json
-  delete owners[STAKING_ADDRESS];
+  delete owners[MORPHIES_STAKING_ADDRESS];
   // Sort owners by nft amounts
   let sortedOwners = createSortedHolderArray();
 
