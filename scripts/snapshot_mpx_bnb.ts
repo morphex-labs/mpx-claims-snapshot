@@ -4,13 +4,10 @@ import pairAbi from '../abi/pair.json';
 import rewardTrackerAbi from '../abi/reward_tracker.json';
 import gaugeAbi from '../abi/gauge_v2.json';
 import * as fs from 'node:fs/promises';
-import { INCREMENT, MPX_BNB_ADDRESS, MPX_BNB_CREATE_BLOCK, MPX_BNB_LP_GAUGE_ADDRESS, MPX_BNB_LP_PAIR_ADDRESS, MPX_BNB_REWARD_TRACKER_ADDRESS, MpxHolder } from "../utils/constants";
+import { INCREMENT, MPX_BNB_ADDRESS, MPX_BNB_BLACKLIST, MPX_BNB_CREATE_BLOCK, MPX_BNB_LP_GAUGE_ADDRESS, MPX_BNB_LP_PAIR_ADDRESS, MPX_BNB_REWARD_TRACKER_ADDRESS, MpxHolder } from "../utils/constants";
 import { BigNumberish, EventLog } from "ethers";
-import { retry } from "../utils/helpers";
+import { markContracts, retry } from "../utils/helpers";
 const cliProgress = require('cli-progress');
-
-// MPX single staked & held in wallet for Fantom. 
-// MPX-FTM LPs on FVM and Equalizer
 
 var balances: { [id: string]: bigint; } = {}
 var holders: MpxHolder[] = [];
@@ -65,7 +62,7 @@ async function snapshotHolders(snapshotBlock: number): Promise<MpxHolder[]> {
 
         var mpxHolders: MpxHolder[] = [];
         for (var key in balances) {
-            mpxHolders.push({ address: key, amount: balances[key].toString(), amountLp: BigInt(0).toString() });
+            mpxHolders.push({ address: key, amount: balances[key].toString(), amountLp: BigInt(0).toString(), isContract: false });
         }
 
         sortHolders(mpxHolders);
@@ -225,9 +222,19 @@ async function main() {
     console.log("Checking Snapshot data...")
     checkSnapshotCorrectness(holders, ts);
 
-    // Filter out previous holders and address zero
+    // Filter out previous holders
     holders = holders.filter((holder) => BigInt(holder.amount) + BigInt(holder.amountLp) > 0);
-    holders = holders.filter((holder) => holder.address.toLocaleLowerCase() != ethers.ZeroAddress);
+
+    console.log("Marking contracts...")
+    await markContracts(holders);
+
+    console.log("Excluding contracts and blacklisted addresses...")
+
+    // Filter out contracts and blacklist
+    holders = holders.filter((holder) => holder.isContract != true);
+    for (var index in MPX_BNB_BLACKLIST) {
+        holders = holders.filter((holder) => holder.address.toLowerCase() != MPX_BNB_BLACKLIST[index].toLowerCase());
+    }
 
     console.log("Saving Final JSON...")
     sortHolders(holders);

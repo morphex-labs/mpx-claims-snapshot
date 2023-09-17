@@ -1,25 +1,5 @@
 [
     {
-        "address": "0xab646b35F8Ca5d73B52E6Bc02922aC3D8333F364",
-        "amount": "681036298547787023582156",
-        "amountLp": "648652583805779908999119"
-    },
-    {
-        "address": "0x42e5104dA4043efd5607A7766a58b0684EDFe0F7",
-        "amount": "208823743482917213804019",
-        "amountLp": "1020567420839553358791159"
-    },
-    {
-        "address": "0x441CacA1C57c5389Dbb9955ddb92AF288Da38737",
-        "amount": "420000000000000000000000",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x46f60E61bF91A0c750B4b6d66481b484EdaCAc4C",
-        "amount": "416463120744982477414014",
-        "amountLp": "0"
-    },
-    {
         "address": "0x48E53189a4AfF640ce484D89b270c4AedfE4E7Cc",
         "amount": "345000000000000000000000",
         "amountLp": "0"
@@ -35,11 +15,6 @@
         "amountLp": "0"
     },
     {
-        "address": "0x8c1fB9CB10f7bF5b73A29c68824F14003A649457",
-        "amount": "220024143157581759285471",
-        "amountLp": "0"
-    },
-    {
         "address": "0x2728e32174FC95De00695007c9134fA03dC8b434",
         "amount": "206790277539685912429976",
         "amountLp": "0"
@@ -52,11 +27,6 @@
     {
         "address": "0xC27D3Cd78cB5CF1d914D1c9cC0e7b1cEB530a534",
         "amount": "127799467840625987423334",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x702F5253b1Fa6e51F7dFbc3EA20048CE3C914494",
-        "amount": "106641662314018047811051",
         "amountLp": "0"
     },
     {
@@ -590,11 +560,6 @@
         "amountLp": "1800258017788113745983"
     },
     {
-        "address": "0x237557d5eA86841a634Ab4775A2Bd5e3C3f8c8C6",
-        "amount": "1783058930676774956293",
-        "amountLp": "0"
-    },
-    {
         "address": "0x2f7Fe0Fb502ef1516013e8D4891C946cD4D234B2",
         "amount": "0",
         "amountLp": "1434334897538759376524"
@@ -602,16 +567,6 @@
     {
         "address": "0x1a93c570251ec9cE34216AF5EEe618097026bd06",
         "amount": "1421258930450253441740",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x15ca237D87bf6522A28D9c811718CFCE8B1bCAF0",
-        "amount": "1401940042410470084581",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x664cE330511653cB2744b8eD50DbA31C6c4C08ca",
-        "amount": "1376589017613124944995",
         "amountLp": "0"
     },
     {
@@ -1085,11 +1040,6 @@
         "amountLp": "0"
     },
     {
-        "address": "0xb01F8f528702d411d24c9bB8Cc0e2ffF779ec013",
-        "amount": "17616317992933668742",
-        "amountLp": "0"
-    },
-    {
         "address": "0xCAc0Eb798903FFE73aB1776da3174E6E40e721c6",
         "amount": "15377569678501409057",
         "amountLp": "0"
@@ -1210,11 +1160,6 @@
         "amountLp": "0"
     },
     {
-        "address": "0x89b8AA89FDd0507a99d334CBe3C808fAFC7d850E",
-        "amount": "1399703555615786930",
-        "amountLp": "0"
-    },
-    {
         "address": "0x30e977A07BB42a5208ad008d0B583A108CcB8833",
         "amount": "1000000000000000007",
         "amountLp": "0"
@@ -1232,11 +1177,6 @@
     {
         "address": "0x8cB4E81949AFB93c93292cb2f689ec789c716a33",
         "amount": "810976563862141760",
-        "amountLp": "0"
-    },
-    {
-        "address": "0xf6879537088e8e66422f45f377860876e9571942",
-        "amount": "696020167498111512",
         "amountLp": "0"
     },
     {
@@ -1270,11 +1210,6 @@
         "amountLp": "0"
     },
     {
-        "address": "0x46F99291Eedf25fd5c6AE56BbfD6679d0eA3630B",
-        "amount": "66799038751230522",
-        "amountLp": "0"
-    },
-    {
         "address": "0xaF96Ce1e1952B2308eb36515867E041f32490EF4",
         "amount": "29987316083206494",
         "amountLp": "0"
@@ -1305,11 +1240,6 @@
         "amountLp": "0"
     },
     {
-        "address": "0xD5B927956057075377263aaB7f8AfC12F85100dB",
-        "amount": "88207615128707",
-        "amountLp": "0"
-    },
-    {
         "address": "0x175079d96B783C9e9CE35B33C2968b683531ea6B",
         "amount": "24940634542657",
         "amountLp": "0"
@@ -1335,11 +1265,6 @@
         "amountLp": "0"
     },
     {
-        "address": "0xB3253A8C4f4f932A644c3bb189292b10FeEfaCAD",
-        "amount": "3",
-        "amountLp": "0"
-    },
-    {
         "address": "0x019394942Ba09254D96918c136d387C7209E7208",
         "amount": "3",
         "amountLp": "0"
@@ -1351,51 +1276,6 @@
     },
     {
         "address": "0x15B9a8afA179dD66607Db3c801058dDf9f9A7E63",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x00000000009FB6869c8213A8e2D8DFA6260b59a4",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x1111111254EEB25477B68fb85Ed929f73A960582",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x0000000000CC1FFB95df1486af6dacb26D6D1Af0",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x000000000091c4F781762B78ca44e68ff1ED84aE",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0xA08aa383a21BDd5584bFEF72E8D1F02C0ffF8412",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x48E5AC5A23F3AC2F2E7389788388abe097C25870",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x0000000000878880D96A5AfF1448938542337A92",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x0000005031E7744B93BBBfc2FDcC80A887001E31",
-        "amount": "1",
-        "amountLp": "0"
-    },
-    {
-        "address": "0x00000064780d4c734220BB714a8F7e0d9Ac73398",
         "amount": "1",
         "amountLp": "0"
     }

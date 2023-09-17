@@ -1,62 +1,17 @@
 import { ethers } from "hardhat";
 import mpxBnbAbi from '../abi/mpx_bnb.json';
 import pairAbi from '../abi/pair.json';
-import erc20Abi from '../abi/erc20.json';
 import rewardTrackerAbi from '../abi/reward_tracker.json';
 import gaugeAbi from '../abi/gauge_v2.json';
 import * as fs from 'node:fs/promises';
-import { INCREMENT, MPX_FTM_ADDRESS, MPX_FTM_CREATE_BLOCK, MPX_FTM_EQL_LP_GAUGE_ADDRESS, MPX_FTM_EQL_LP_PAIR_ADDRESS, MPX_FTM_EQL_LP_PAIR_CREATE_BLOCK, MPX_FTM_FVM_LP_GAUGE_ADDRESS, MPX_FTM_FVM_LP_PAIR_ADDRESS, MPX_FTM_FVM_LP_PAIR_CREATE_BLOCK, MPX_FTM_REWARD_TRACKER_ADDRESS, MPX_FTM_REWARD_TRACKER_CREATE_BLOCK, MpxHolder } from "../utils/constants";
+import { INCREMENT, MPX_FTM_ADDRESS, MPX_FTM_BLACKLIST, MPX_FTM_CREATE_BLOCK, MPX_FTM_EQL_LP_GAUGE_ADDRESS, MPX_FTM_EQL_LP_PAIR_ADDRESS, MPX_FTM_EQL_LP_PAIR_CREATE_BLOCK, MPX_FTM_FVM_LP_GAUGE_ADDRESS, MPX_FTM_FVM_LP_PAIR_ADDRESS, MPX_FTM_FVM_LP_PAIR_CREATE_BLOCK, MPX_FTM_REWARD_TRACKER_ADDRESS, MPX_FTM_REWARD_TRACKER_CREATE_BLOCK, MpxHolder } from "../utils/constants";
 import { BigNumberish, EventLog } from "ethers";
-import { retry } from "../utils/helpers";
+import { markContracts, retry, snapshotERC20 } from "../utils/helpers";
 const cliProgress = require('cli-progress');
 
 var balances: { [id: string]: bigint; } = {}
 var holders: MpxHolder[] = [];
 var tmpHolders: MpxHolder[] = [];
-
-async function snapshotERC20(tokenAddress: string, tokenCreationBlock: number, snapshotBlock: number, accounts: MpxHolder[]) {
-    let progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-
-    let token = await ethers.getContractAt(
-        erc20Abi,
-        tokenAddress,
-        undefined);
-
-    progressBar.start(snapshotBlock - tokenCreationBlock, 0);
-
-    let filter = token.filters.Transfer();
-    let increment = INCREMENT;
-    var accountsInteracted: Set<string> = new Set<string>();
-
-    try {
-        for (var i = tokenCreationBlock; i < snapshotBlock; i = i + increment + 1) {
-            progressBar.update(i + increment + 1 - tokenCreationBlock);
-            var end = i + increment;
-            if (end >= snapshotBlock) end = snapshotBlock;
-            var events = await retry(3, token.queryFilter(filter, i, end)) as EventLog[];
-            events.forEach((event) => {
-                accountsInteracted.add(event.args.from);
-                accountsInteracted.add(event.args.to);
-            });
-        }
-        console.log("Events processed");
-    } catch (e: any) {
-        console.log(e.message);
-        throw e;
-    } finally {
-        progressBar.stop();
-
-        var counter = 0;
-        for (let account of accountsInteracted) {
-            let index = accounts.findIndex((h) => h.address.toLowerCase() == account.toLowerCase());
-            if (index == -1) {
-                counter++;
-                accounts.push({ address: account, amount: BigInt(0).toString(), amountLp: BigInt(0).toString() })
-            }
-        }
-        console.log(`Found ${counter} new accounts`)
-    }
-}
 
 async function snapshotHolders(snapshotBlock: number): Promise<MpxHolder[]> {
     // create a new progress bar instance and use shades_classic theme
@@ -108,7 +63,7 @@ async function snapshotHolders(snapshotBlock: number): Promise<MpxHolder[]> {
 
         var mpxHolders: MpxHolder[] = [];
         for (var key in balances) {
-            mpxHolders.push({ address: key, amount: balances[key].toString(), amountLp: BigInt(0).toString() });
+            mpxHolders.push({ address: key, amount: balances[key].toString(), amountLp: BigInt(0).toString(), isContract: false });
         }
 
         sortHolders(mpxHolders);
@@ -286,7 +241,7 @@ async function main() {
         let index = holders.findIndex((h) => h.address.toLowerCase() == tmpHolders[i].address.toLowerCase());
         sum = sum + BigInt(tmpHolders[i].amountLp);
         if (index == -1) {
-            holders.push({ address: tmpHolders[i].address, amount: BigInt(0).toString(), amountLp: tmpHolders[i].amountLp })
+            holders.push({ address: tmpHolders[i].address, amount: BigInt(0).toString(), amountLp: tmpHolders[i].amountLp, isContract: false })
         } else {
             holders[index].amountLp = (BigInt(holders[index].amountLp) + BigInt(tmpHolders[i].amountLp)).toString();
         }
@@ -299,9 +254,19 @@ async function main() {
     console.log("Checking Snapshot data...")
     checkSnapshotCorrectness(holders, ts);
 
-    // Filter out previous holders and address zero
+    // Filter out previous holders
     holders = holders.filter((holder) => BigInt(holder.amount) + BigInt(holder.amountLp) > 0);
-    holders = holders.filter((holder) => holder.address.toLowerCase() != ethers.ZeroAddress);
+
+    console.log("Marking contracts...")
+    await markContracts(holders);
+
+    console.log("Excluding contracts and blacklisted addresses...")
+
+    // Filter out contracts and blacklist
+    holders = holders.filter((holder) => holder.isContract != true);
+    for (var index in MPX_FTM_BLACKLIST) {
+        holders = holders.filter((holder) => holder.address.toLowerCase() != MPX_FTM_BLACKLIST[index].toLowerCase());
+    }
 
     console.log("Saving Final JSON...")
     sortHolders(holders);

@@ -1,3 +1,5 @@
+import { ethers } from "ethers";
+
 export const MORPHIES_ADDRESS = "0x2183765B7F1CD9B6dc7d12a936B4d31110ee4225";
 export const MORPHIES_STAKING_ADDRESS = "0x13dCae96Ad6921CeD276971262641cC30DaBaAbb";
 
@@ -15,17 +17,22 @@ export const MPX_FTM_REWARD_TRACKER_ADDRESS = "0xa4157E273D88ff16B3d8Df68894e1fd
 export const MPX_BNB_REWARD_ROUTER_V2_ADDRESS = "0x9Ac78C583bD14370248Fb65C151D33CF21c1f4E4";
 export const MPX_FTM_REWARD_ROUTER_V2_ADDRESS = "0xd6489eAf13f61822356F30618E1D9947fa1Ef46F";
 
-export const MPX_BNB_VESTED_MLP_ADDRESS = "0x46f60e61bf91a0c750b4b6d66481b484edacac4c";
-export const MPX_BNB_VESTED_MPX_ADDRESS = "0x702F5253b1Fa6e51F7dFbc3EA20048CE3C914494";
-
 export const MPX_BNB_BLACKLIST = [
     "0xab646b35F8Ca5d73B52E6Bc02922aC3D8333F364", // multisig
     "0x441CacA1C57c5389Dbb9955ddb92AF288Da38737", // multisig
     "0x42e5104dA4043efd5607A7766a58b0684EDFe0F7", // multisig
     "0xDd257d090FA0f9ffB496b790844418593e969ba6", // multisig
-    "0x15ca237d87bf6522a28d9c811718cfce8b1bcaf0", // lp fees
-    "0x8c1fb9cb10f7bf5b73a29c68824f14003a649457", // bribes
-    "0x237557d5ea86841a634ab4775a2bd5e3c3f8c8c6", // bribes
+    "0x000000000000000000000000000000000000dEaD", // dead address
+    ethers.ZeroAddress
+]
+
+export const MPX_FTM_BLACKLIST = [
+    "0xab646b35F8Ca5d73B52E6Bc02922aC3D8333F364", // multisig
+    "0x441CacA1C57c5389Dbb9955ddb92AF288Da38737", // multisig
+    "0x42e5104dA4043efd5607A7766a58b0684EDFe0F7", // multisig
+    "0xDd257d090FA0f9ffB496b790844418593e969ba6", // multisig
+    "0x000000000000000000000000000000000000dEaD", // dead address
+    ethers.ZeroAddress
 ]
 
 export const MPX_BNB_CREATE_BLOCK = 28904155;
@@ -47,4 +54,5 @@ export type MpxHolder = {
     address: string;
     amount: string;
     amountLp: string;
+    isContract: Boolean;
 }
