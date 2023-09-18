@@ -1,4 +1,4 @@
-# MorphexSnapshot
+# Morphex Snapshot
 
 Create snapshot of MPX and Morphies NFT holders, including:
 - Thena MPX-BNB LP
