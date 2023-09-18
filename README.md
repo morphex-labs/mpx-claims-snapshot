@@ -7,6 +7,8 @@ Create snapshot of MPX and Morphies NFT holders, including:
 - single-staked MPX
 - MPX held in wallets
 
+All contract addresses ale filtered out, in addition to addresses on a blacklist.
+
 ## Usage
 
 1. Create `.env` file based on `.env.example`. Few notes of consideration:
