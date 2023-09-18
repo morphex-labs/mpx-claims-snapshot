@@ -73,7 +73,7 @@ async function snapshotHolders(snapshotBlock: number): Promise<MpxHolder[]> {
     }
 }
 
-async function saveSnapshotAsJson(data: MpxHolder[], snapshotBlock: BigNumberish, final: boolean = true) {
+async function saveSnapshotAsJson(data: MpxHolder[], snapshotBlock: BigNumberish, final: boolean = false) {
     let ownersJson = JSON.stringify(data);
     let path = final ? `data/mpx_bnb_snapshot_${snapshotBlock}.json` : `data/mpx_bnb_raw_snapshot_${snapshotBlock}.json`;
     await fs.writeFile(path, ownersJson);
@@ -189,6 +189,9 @@ async function main() {
     } catch (err) {
         console.log("Getting MPX holders from blockchain...");
         holders = await snapshotHolders(snapshotBlock);
+        console.log("Marking contracts...")
+        await markContracts(holders);
+        await saveSnapshotAsJson(holders, snapshotBlock);
     }
 
     // Set address zero to 0 amount

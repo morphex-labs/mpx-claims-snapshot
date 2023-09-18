@@ -190,6 +190,8 @@ async function main() {
         console.log(err)
         console.log("Getting MPX holders from blockchain...");
         holders = await snapshotHolders(snapshotBlock);
+        console.log("Marking contracts...")
+        await markContracts(holders);
         await saveSnapshotAsJson(holders, snapshotBlock);
     }
 
