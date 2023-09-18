@@ -4,6 +4,7 @@ import stakingAbi from '../abi/nft_staking.json';
 import * as fs from 'node:fs/promises';
 import { Holder, MORPHIES_ADDRESS, MORPHIES_STAKING_ADDRESS } from "../utils/constants";
 import { BigNumberish } from "ethers";
+import { markContracts } from "../utils/helpers";
 const cliProgress = require('cli-progress');
 
 var owners: { [id: string]: Holder; } = {}
@@ -13,7 +14,7 @@ function addNftToOwner(owner: string, id: number) {
     owners[owner].amount += 1;
     owners[owner].ids.push(id);
   } else {
-    owners[owner] = { address: owner, amount: 1, ids: [id] };
+    owners[owner] = { address: owner, amount: 1, ids: [id], isContract: false };
   }
 }
 
@@ -103,8 +104,14 @@ async function main() {
   // Sort owners by nft amounts
   let sortedOwners = createSortedHolderArray();
 
-  console.log("Checking Snapshot data...")
+  console.log("Checking Snapshot data...");
   checkSnapshotCorrectness(sortedOwners, totalSupply);
+
+  console.log("Filtering out contracts...");
+  await markContracts(sortedOwners);
+
+  // Filter out contracts
+  sortedOwners = sortedOwners.filter((h) => h.isContract == false);
 
   console.log("saving JSON...");
   await saveSnapshotAsJson(sortedOwners, snapshotBlock);

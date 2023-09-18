@@ -43,11 +43,23 @@ export const MPX_FTM_FVM_LP_PAIR_CREATE_BLOCK = 65080466;
 export const MPX_FTM_EQL_LP_PAIR_CREATE_BLOCK = 55091519;
 export const INCREMENT = 1000;
 
+export type AirdropReceiver = {
+    address: string;
+    percent: number;
+    amount: bigint;
+};
+
+export type AirdropReceiverFormatted = {
+    address: string;
+    percent: number;
+    amount: string;
+};
 
 export type Holder = {
     address: string;
     amount: number;
     ids: number[];
+    isContract: Boolean;
 };
 
 export type MpxHolder = {

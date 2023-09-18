@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-import { INCREMENT, MpxHolder } from "./constants";
+import { Holder, INCREMENT, MpxHolder } from "./constants";
 import erc20Abi from '../abi/erc20.json';
 import { EventLog } from "ethers";
 const cliProgress = require('cli-progress');
@@ -20,7 +20,7 @@ export async function retry<Type>(retries: number, promise: Promise<Type>): Prom
     }
 }
 
-export async function markContracts(accounts: MpxHolder[]) {
+export async function markContracts(accounts: MpxHolder[] | Holder[]) {
     let progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
     progressBar.start(accounts.length, 0);
     try {
