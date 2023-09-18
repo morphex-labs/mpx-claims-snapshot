@@ -5,6 +5,12 @@
   "repository": "https://github.com/pbnather/MorphexSnapshot.git",
   "author": "pbnather <33466053+pbnather@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "snapshot:morphies": "npx hardhat run scripts/snapshot_morphies.ts",
+    "snapshot:bnb": "npx hardhat run scripts/snapshot_mpx_bnb.ts",
+    "snapshot:ftm": "npx hardhat --config fantom-fork.hardhat.config.ts run scripts/snapshot_mpx_ftm.ts",
+    "snapshot:process": "npx hardhat run scripts/process_snapshots.ts"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
     "@nomicfoundation/hardhat-ethers": "^3.0.0",
