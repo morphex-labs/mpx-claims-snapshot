@@ -6,7 +6,7 @@ var bnbHolders: MpxHolder[] = [];
 var morphies: Holder[] = [];
 var airdropReceivers: AirdropReceiver[] = [];
 var airdropAmount: bigint;
-var morphiesAirdropPC: number;
+var mpxPerMorphie: bigint;
 var lpScalingFactor: number;
 
 async function loadData() {
@@ -41,20 +41,20 @@ async function loadData() {
     // line break
     console.log("")
 
-    airdropAmount = BigInt(process.env.AIRDROP_AMOUNT || 0);
+    airdropAmount = BigInt(process.env.AIRDROP_AMOUNT || 0) * BigInt(1e18);
     if (airdropAmount == BigInt(0)) {
         throw new Error("AIRDROP_AMOUNT in .env not defined");
     } else {
-        console.log(`Airdrop amount: ${airdropAmount}`);
+        console.log(`Airdrop amount: ${airdropAmount / BigInt(1e18)} oBMX`);
     }
 
-    morphiesAirdropPC = Number(process.env.MORPHIES_AIRDROP_PC || 0);
-    if (morphiesAirdropPC == 0) {
-        throw new Error("MORPHIES_AIRDROP_PC in .env not defined");
-    } else if (morphiesAirdropPC >= 100) {
-        throw new Error("MORPHIES_AIRDROP_PC is above 100%");
+    mpxPerMorphie = BigInt(process.env.MPX_PER_MORPHIE || 0) * BigInt(1e18);
+    if (mpxPerMorphie == BigInt(0)) {
+        throw new Error("MPX_PER_MORPHIE in .env not defined");
+    } else if (mpxPerMorphie < 0) {
+        throw new Error("MPX_PER_MORPHIE is less than 0");
     } else {
-        console.log(`Morphies airdrop: ${morphiesAirdropPC}%`);
+        console.log(`MPX per Morphie: ${mpxPerMorphie / BigInt(1e18)} oBMX`);
     }
 
     lpScalingFactor = Number(process.env.LP_SCALING_FACTOR || 0);
@@ -69,12 +69,17 @@ function scaleLpAmounts() {
     for (var i in ftmholders) {
         let holder = ftmholders[i];
         var lpScaled = (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
-        airdropReceivers.push({ address: holder.address.toLowerCase(), amount: BigInt(holder.amount) + lpScaled, percent: 0 });
+        var index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == holder.address.toLowerCase());
+        if (index == -1) {
+            airdropReceivers.push({ address: holder.address.toLowerCase(), amount: BigInt(holder.amount) + lpScaled, percent: 0 });
+        } else {
+            airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled;
+        }
     }
     for (var i in bnbHolders) {
         let holder = bnbHolders[i];
         var lpScaled = (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
-        var index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == bnbHolders[i].address.toLowerCase());
+        var index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == holder.address.toLowerCase());
         if (index == -1) {
             airdropReceivers.push({ address: holder.address.toLowerCase(), amount: BigInt(holder.amount) + lpScaled, percent: 0 });
         } else {
@@ -88,6 +93,7 @@ function checkScaledLpSum() {
     var sum = BigInt(0);
     var sumLp = BigInt(0);
     var scaledSum = BigInt(0);
+    var morphieSum = BigInt(0);
 
     for (var i in ftmholders) {
         sum += BigInt(ftmholders[i].amount);
@@ -100,18 +106,23 @@ function checkScaledLpSum() {
     for (var i in airdropReceivers) {
         scaledSum += airdropReceivers[i].amount;
     }
+    for (var i in morphies) {
+        morphieSum += BigInt(morphies[i].amount);
+    }
+    morphieSum *= mpxPerMorphie;
 
-    let checked = scaledSum - sum;
+    let checked = scaledSum - sum - morphieSum;
     let expected = (sumLp * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
     console.log(`Scaled:\t\t${checked}`);
     console.log(`Expected:\t${expected}`);
-    if (checked - expected >= 0 && (checked - expected) < 1000) {
-        console.log("Calculation difference < 1e-14")
-    } else if (expected - checked >= 0 && (expected - checked) < 1000) {
-        console.log("Calculation difference < 1e-14")
+    if (checked - expected >= 0 && (checked - expected) < 1e6) {
+        console.log("Calculation difference < 1e-12")
+    } else if (expected - checked >= 0 && (expected - checked) < 1e6) {
+        console.log("Calculation difference < 1e-12")
     } else {
-        throw new Error("Error in calcualtions");
+        throw new Error("Error in calculations");
     }
+    console.log(`All MPX: ${scaledSum}`)
     return scaledSum;
 }
 
@@ -121,45 +132,34 @@ function transformAmounts(tokensPerAmount: bigint) {
     }
 }
 
-function checkTransformedAmounts(expectedSum: bigint) {
-    var checkedSum = BigInt(0);
-    for (var i in airdropReceivers) {
-        checkedSum += airdropReceivers[i].amount;
-    }
-
-    console.log(`Cehcked sum:\t${checkedSum}`);
-    console.log(`Expected sum:\t${expectedSum}`);
-    if (expectedSum - checkedSum > 0 && (expectedSum - checkedSum) < 1e9) {
-        console.log("Calculation difference < 1e9")
-    } else {
-        throw new Error("Error in calcualtions");
-    }
-    return expectedSum - checkedSum;
-}
-
-function addAirdropForMorphies(airdropAmount: bigint) {
-    var sum = 0;
+function addAirdropForMorphies() {
     for (var i in morphies) {
-        sum += Number(morphies[i].amount);
-    }
-
-    console.log(`Morphies amount:\t${sum}`);
-    console.log(`oBMX per Morphie:\t${airdropAmount / BigInt(sum)}`);
-
-    var amounts: MpxHolder[] = [];
-    for (var i in morphies) {
-        amounts.push({ address: morphies[i].address, amount: ((BigInt(morphies[i].amount) * airdropAmount) / BigInt(sum)).toString(), amountLp: BigInt(0).toString(), isContract: false });
-    }
-
-    for (var i in amounts) {
-        let index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == amounts[i].address.toLowerCase());
+        let index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == morphies[i].address.toLowerCase());
+        let amount = BigInt(morphies[i].amount) * mpxPerMorphie;
         if (index == -1) {
-            airdropReceivers.push({ address: amounts[i].address, amount: BigInt(amounts[i].amount), percent: 0 })
+            airdropReceivers.push({ address: morphies[i].address, amount: amount, percent: 0 })
         } else {
-            airdropReceivers[index].amount += BigInt(amounts[i].amount)
+            airdropReceivers[index].amount += amount
         }
     }
 
+}
+
+function checkMorphieAirdropAmounts() {
+    var expected = BigInt(0);
+    var checked = BigInt(0);
+    for (var i in morphies) {
+        expected += BigInt(morphies[i].amount)
+    }
+    expected = expected * mpxPerMorphie;
+    for (var i in airdropReceivers) {
+        checked += airdropReceivers[i].amount;
+    }
+    console.log(`Checked:\t${checked}`)
+    console.log(`Expected:\t${expected}`)
+    if (expected != checked) {
+        throw new Error("Error in calculations, aborting...");
+    }
 }
 
 function checkAndFixAirdropAmounts() {
@@ -169,8 +169,8 @@ function checkAndFixAirdropAmounts() {
     }
     console.log(`Checked:\t${sum}`)
     console.log(`Expected:\t${airdropAmount}`)
-    if (airdropAmount - sum < 1e3) {
-        console.log("Difference < 1e3")
+    if (airdropAmount - sum < 1e9) {
+        console.log("Difference < 1e9")
         console.log(`Adding ${airdropAmount - sum} (1e-18) to random holder`)
         var randomIndex = Math.floor(Math.random() * (airdropReceivers.length - 1));
         console.log(`Random holder index: ${randomIndex}`);
@@ -185,7 +185,7 @@ function checkAndFixAirdropAmounts() {
         console.log(`Fixed:\t\t${sum}`)
         console.log(`Expected:\t${airdropAmount}`)
         if (sum != airdropAmount) {
-            throw new Error("Error in calcualations, aborting...");
+            throw new Error("Error in calculations, aborting...");
         }
     } else {
         throw new Error("Difference too big, aborting...");
@@ -239,31 +239,24 @@ async function main() {
 
     await loadData();
 
-    var morphiesAirdrop = (airdropAmount * BigInt(morphiesAirdropPC * 1000)) / BigInt(100000);
-    let holdersAirdrop = airdropAmount - morphiesAirdrop;
-
-    console.log(`Holders airdrop\t\t(${100 - morphiesAirdropPC}%): ${holdersAirdrop}`);
-    console.log(`Morphies airdrop\t(${morphiesAirdropPC}%): ${morphiesAirdrop}`);
-
     // line break
-    console.log("")
+    console.log("");
+
+    console.log("Adding morphies airdrop...");
+    addAirdropForMorphies();
+
+    console.log("Checking morphie aidrop amounts...")
+    checkMorphieAirdropAmounts();
 
     console.log("Scaling LP amounts...")
     scaleLpAmounts();
     let allMpx = checkScaledLpSum();
-    let tokensPerMpx = (holdersAirdrop * BigInt(1e18)) / allMpx;
+    let tokensPerMpx = (airdropAmount * BigInt(1e18)) / allMpx;
 
     console.log(`oBMX per 1 MPX: ${tokensPerMpx}`);
 
     console.log("Transforming token amounts...");
     transformAmounts(tokensPerMpx);
-    let amountsDiffernce = checkTransformedAmounts(holdersAirdrop);
-
-    // Add difference to Morphies airdrop
-    morphiesAirdrop += amountsDiffernce;
-
-    console.log("Adding morphies airdrop...");
-    addAirdropForMorphies(morphiesAirdrop);
 
     console.log("Checking airdrop amounts...");
     checkAndFixAirdropAmounts();
