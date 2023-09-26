@@ -1,5 +1,5 @@
 import * as fs from 'node:fs/promises';
-import { AirdropReceiver, AirdropReceiverFormatted, Holder, MpxHolder } from "../utils/constants";
+import { EOA_BLACKLIST, AirdropReceiver, AirdropReceiverFormatted, Holder, MpxHolder } from "../utils/constants";
 
 var ftmholders: MpxHolder[] = [];
 var bnbHolders: MpxHolder[] = [];
@@ -145,6 +145,13 @@ function addAirdropForMorphies() {
 
 }
 
+function blacklistEoas() {
+	for (var i in EOA_BLACKLIST) {
+		       ftmholders = ftmholders.filter((holder) => holder.address.toLowerCase() != EOA_BLACKLIST[i].toLowerCase());
+		             bnbHolders = bnbHolders.filter((holder) => holder.address.toLowerCase() != EOA_BLACKLIST[i].toLowerCase());
+	 }
+}
+
 function checkMorphieAirdropAmounts() {
     var expected = BigInt(0);
     var checked = BigInt(0);
@@ -231,6 +238,20 @@ async function saveSnapshotAsJson(data: AirdropReceiverFormatted[], snapshotFtmB
     console.log(`Snapshot saved as ${path}`);
 }
 
+
+async function saveArrays(addressesData: string[], amountsData: string[]) {
+    let addressJson = JSON.stringify(addressesData);
+    let amountsJson = JSON.stringify(amountsData);
+
+    let adressesPath = `data/mpx_final_snapshot_addresses.json`;
+    await fs.writeFile(adressesPath, addressJson);
+
+    let amountsPath = `data/mpx_final_snapshot_amounts.json`;
+    await fs.writeFile(amountsPath, amountsJson);
+    console.log(`Snapshots saved in arrays!`);
+}
+
+
 async function main() {
     let ftmSnapshotBlock = process.env.FANTOM_SNAPSHOT_BLOCK;
     let bscSnapshotBlock = process.env.BSC_SNAPSHOT_BLOCK;
@@ -247,6 +268,12 @@ async function main() {
 
     console.log("Checking morphie aidrop amounts...")
     checkMorphieAirdropAmounts();
+
+    ftmholders = ftmholders.filter((holder) => BigInt(holder.amount) >= BigInt(52000000000000000000));
+    bnbHolders = bnbHolders.filter((holder) => BigInt(holder.amount) >= BigInt(52000000000000000000));
+
+    console.log("Blacklisting EOAs except morphies...");
+    blacklistEoas();
 
     console.log("Scaling LP amounts...")
     scaleLpAmounts();
@@ -271,6 +298,19 @@ async function main() {
     sortAirdrop(airdropReceivers);
     let formatted = formatAirdropReceivers(airdropReceivers);
     await saveSnapshotAsJson(formatted, ftmSnapshotBlock as string, bscSnapshotBlock as string);
+
+    var addresses : string[] = [];
+    var amounts : string[] = [];
+    for (var i in airdropReceivers) {
+	addresses.push(airdropReceivers[i].address);
+        amounts.push((airdropReceivers[i].amount).toString());
+    }
+
+    for (var i in airdropReceivers) {
+        if (addresses[i] != airdropReceivers[i].address || amounts[i] != (airdropReceivers[i].amount).toString()) throw new Error(`Error saving formatted`);
+    }
+
+    await saveArrays(addresses, amounts);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
