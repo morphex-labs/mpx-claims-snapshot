@@ -70,23 +70,26 @@ function scaleLpAmounts() {
         let holder = ftmholders[i];
         var lpScaled = (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
         var index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == holder.address.toLowerCase());
+	if(lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
         if (index == -1) {
             airdropReceivers.push({ address: holder.address.toLowerCase(), amount: BigInt(holder.amount) + lpScaled, percent: 0 });
         } else {
             airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled;
         }
+	}
     }
     for (var i in bnbHolders) {
         let holder = bnbHolders[i];
         var lpScaled = (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
         var index = airdropReceivers.findIndex((h) => h.address.toLowerCase() == holder.address.toLowerCase());
+	if(lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
         if (index == -1) {
             airdropReceivers.push({ address: holder.address.toLowerCase(), amount: BigInt(holder.amount) + lpScaled, percent: 0 });
         } else {
             airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled;
         }
+	}
     }
-
 }
 
 function checkScaledLpSum() {
@@ -96,12 +99,20 @@ function checkScaledLpSum() {
     var morphieSum = BigInt(0);
 
     for (var i in ftmholders) {
+	let holder = ftmholders[i];
+	 var lpScaled = (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
+ 	 if(lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
         sum += BigInt(ftmholders[i].amount);
         sumLp += BigInt(ftmholders[i].amountLp);
+	 }
     }
     for (var i in bnbHolders) {
+	    let holder = bnbHolders[i];
+            var lpScaled = (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
+       if(lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
         sum += BigInt(bnbHolders[i].amount);
         sumLp += BigInt(bnbHolders[i].amountLp);
+	    }
     }
     for (var i in airdropReceivers) {
         scaledSum += airdropReceivers[i].amount;
@@ -268,9 +279,6 @@ async function main() {
 
     console.log("Checking morphie aidrop amounts...")
     checkMorphieAirdropAmounts();
-
-    ftmholders = ftmholders.filter((holder) => BigInt(holder.amount) >= BigInt(52000000000000000000));
-    bnbHolders = bnbHolders.filter((holder) => BigInt(holder.amount) >= BigInt(52000000000000000000));
 
     console.log("Blacklisting EOAs except morphies...");
     blacklistEoas();
