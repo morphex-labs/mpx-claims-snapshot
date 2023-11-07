@@ -7,7 +7,7 @@ Create snapshot of MPX and Morphies NFT holders, including:
 - single-staked MPX
 - MPX held in wallets
 
-All contract addresses ale filtered out, in addition to addresses on a blacklist.
+All contract addresses are filtered out, in addition to addresses on a blacklist.
 
 ## Usage
 

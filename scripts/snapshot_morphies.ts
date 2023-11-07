@@ -1,13 +1,17 @@
 import { ethers } from "hardhat";
-import morphiesAbi from '../abi/morphies.json';
-import stakingAbi from '../abi/nft_staking.json';
-import * as fs from 'node:fs/promises';
-import { Holder, MORPHIES_ADDRESS, MORPHIES_STAKING_ADDRESS } from "../utils/constants";
+import morphiesAbi from "../abi/morphies.json";
+import stakingAbi from "../abi/nft_staking.json";
+import * as fs from "node:fs/promises";
+import {
+  Holder,
+  MORPHIES_ADDRESS,
+  MORPHIES_STAKING_ADDRESS,
+} from "../utils/constants";
 import { BigNumberish } from "ethers";
 import { markContracts } from "../utils/helpers";
-const cliProgress = require('cli-progress');
+const cliProgress = require("cli-progress");
 
-var owners: { [id: string]: Holder; } = {}
+var owners: { [id: string]: Holder } = {};
 
 function addNftToOwner(owner: string, id: number) {
   if (owner in owners) {
@@ -20,11 +24,15 @@ function addNftToOwner(owner: string, id: number) {
 
 async function snapshotHolders(): Promise<BigNumberish> {
   // create a new progress bar instance and use shades_classic theme
-  let morphiesBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  let morphiesBar = new cliProgress.SingleBar(
+    {},
+    cliProgress.Presets.shades_classic
+  );
   let morphies = await ethers.getContractAt(
     morphiesAbi,
     MORPHIES_ADDRESS,
-    undefined);
+    undefined
+  );
   let totalSupply = await morphies.totalSupply();
   morphiesBar.start(Number(totalSupply), 0);
   for (let i = 0; i < totalSupply; i++) {
@@ -37,11 +45,15 @@ async function snapshotHolders(): Promise<BigNumberish> {
 }
 
 async function snapshotStakers() {
-  let stakingBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  let stakingBar = new cliProgress.SingleBar(
+    {},
+    cliProgress.Presets.shades_classic
+  );
   let staking = await ethers.getContractAt(
     stakingAbi,
     MORPHIES_STAKING_ADDRESS,
-    undefined);
+    undefined
+  );
 
   let stakedNfts = owners[MORPHIES_STAKING_ADDRESS].ids.length;
   stakingBar.start(stakedNfts, 0);
@@ -64,14 +76,17 @@ function createSortedHolderArray(): Holder[] {
     if (a.amount > b.amount) return -1;
     else if (a.amount < b.amount) return 1;
     else return 0;
-  })
+  });
 
   return holders;
 }
 
 async function saveSnapshotAsJson(data: Holder[], snapshotBlock: BigNumberish) {
   let ownersJson = JSON.stringify(data);
-  await fs.writeFile(`data/morphies_snapshot_${snapshotBlock}.json`, ownersJson);
+  await fs.writeFile(
+    `data/morphies_snapshot_${snapshotBlock}.json`,
+    ownersJson
+  );
   console.log(`Snapshot saved as data/morphies_snapshot_${snapshotBlock}.json`);
 }
 
@@ -90,7 +105,7 @@ function checkSnapshotCorrectness(data: Holder[], totalSupply: BigNumberish) {
 }
 
 async function main() {
-  let snapshotBlock = await ethers.provider.getBlockNumber()
+  let snapshotBlock = await ethers.provider.getBlockNumber();
   console.log("Snapshot block:", snapshotBlock);
 
   console.log("Getting NFT holders...");
