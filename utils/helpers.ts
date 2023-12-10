@@ -34,7 +34,10 @@ export async function markContracts(accounts: MpxHolder[] | Holder[]) {
       progressBar.update(i + 1);
       let code = await ethers.provider.getCode(accounts[i].address);
       if (code != "0x") {
-        accounts[i].isContract = true;
+        // Keep the SCREAM multisig in the airdrop
+        if (accounts[i].address.toLowerCase() != "0x52baD1537790f102012f4D10B887AE2E5819563F".toLowerCase()) {
+          accounts[i].isContract = true;
+        }
       }
     }
   } catch (err) {
