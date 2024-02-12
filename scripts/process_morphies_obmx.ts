@@ -7,7 +7,7 @@ interface User {
   isContract: boolean;
 }
 
-const totalTokens = BigInt("1000000000000000000000000000");
+const totalTokens = BigInt("115995000000000000000000"); // 115,995 oBMX
 
 async function loadData(): Promise<User[]> {
   try {

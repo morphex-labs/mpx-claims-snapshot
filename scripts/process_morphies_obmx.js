@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var fs = require("node:fs/promises");
-var totalTokens = BigInt(process.env.MORPHIES_AIRDROP_AMOUNT || 0) * BigInt(1e18);
+var totalTokens = BigInt("115995000000000000000000"); // 115,995 oBMX
 function loadData() {
     return __awaiter(this, void 0, void 0, function () {
         var path, jsonData, users, error_1;
