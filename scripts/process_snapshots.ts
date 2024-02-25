@@ -9,10 +9,10 @@ import {
 
 var ftmholders: MpxHolder[] = [];
 var bnbHolders: MpxHolder[] = [];
-var morphies: Holder[] = [];
+// var morphies: Holder[] = [];
 var airdropReceivers: AirdropReceiver[] = [];
 var airdropAmount: bigint;
-var mpxPerMorphie: bigint;
+// var mpxPerMorphie: bigint;
 var lpScalingFactor: number;
 
 async function loadData() {
@@ -40,19 +40,19 @@ async function loadData() {
     throw err;
   }
 
-  try {
-    console.log(
-      `Getting Morphies holders from data/morphies_snapshot_${process.env.BSC_SNAPSHOT_BLOCK}.json...`
-    );
-    let jsonHolders = await fs.readFile(
-      `data/morphies_snapshot_${process.env.BSC_SNAPSHOT_BLOCK}.json`,
-      "utf8"
-    );
-    morphies = JSON.parse(jsonHolders) as Holder[];
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
+  // try {
+  //   console.log(
+  //     `Getting Morphies holders from data/morphies_snapshot_${process.env.BSC_SNAPSHOT_BLOCK}.json...`
+  //   );
+  //   let jsonHolders = await fs.readFile(
+  //     `data/morphies_snapshot_${process.env.BSC_SNAPSHOT_BLOCK}.json`,
+  //     "utf8"
+  //   );
+  //   morphies = JSON.parse(jsonHolders) as Holder[];
+  // } catch (err) {
+  //   console.log(err);
+  //   throw err;
+  // }
 
   // line break
   console.log("");
@@ -64,14 +64,14 @@ async function loadData() {
     console.log(`Airdrop amount: ${airdropAmount / BigInt(1e18)} oBMX`);
   }
 
-  mpxPerMorphie = BigInt(process.env.MPX_PER_MORPHIE || 0) * BigInt(1e18);
-  if (mpxPerMorphie == BigInt(0)) {
-    throw new Error("MPX_PER_MORPHIE in .env not defined");
-  } else if (mpxPerMorphie < 0) {
-    throw new Error("MPX_PER_MORPHIE is less than 0");
-  } else {
-    console.log(`MPX per Morphie: ${mpxPerMorphie / BigInt(1e18)} oBMX`);
-  }
+  // mpxPerMorphie = BigInt(process.env.MPX_PER_MORPHIE || 0) * BigInt(1e18);
+  // if (mpxPerMorphie == BigInt(0)) {
+  //   throw new Error("MPX_PER_MORPHIE in .env not defined");
+  // } else if (mpxPerMorphie < 0) {
+  //   throw new Error("MPX_PER_MORPHIE is less than 0");
+  // } else {
+  //   console.log(`MPX per Morphie: ${mpxPerMorphie / BigInt(1e18)} oBMX`);
+  // }
 
   lpScalingFactor = Number(process.env.LP_SCALING_FACTOR || 0);
   if (lpScalingFactor == 0) {
@@ -149,10 +149,10 @@ function checkScaledLpSum() {
   for (var i in airdropReceivers) {
     scaledSum += airdropReceivers[i].amount;
   }
-  for (var i in morphies) {
-    morphieSum += BigInt(morphies[i].amount);
-  }
-  morphieSum *= mpxPerMorphie;
+  // for (var i in morphies) {
+  //   morphieSum += BigInt(morphies[i].amount);
+  // }
+  // morphieSum *= mpxPerMorphie;
 
   let checked = scaledSum - sum - morphieSum;
   let expected = (sumLp * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
@@ -176,23 +176,23 @@ function transformAmounts(tokensPerAmount: bigint) {
   }
 }
 
-function addAirdropForMorphies() {
-  for (var i in morphies) {
-    let index = airdropReceivers.findIndex(
-      (h) => h.address.toLowerCase() == morphies[i].address.toLowerCase()
-    );
-    let amount = BigInt(morphies[i].amount) * mpxPerMorphie;
-    if (index == -1) {
-      airdropReceivers.push({
-        address: morphies[i].address,
-        amount: amount,
-        percent: 0,
-      });
-    } else {
-      airdropReceivers[index].amount += amount;
-    }
-  }
-}
+// function addAirdropForMorphies() {
+//   for (var i in morphies) {
+//     let index = airdropReceivers.findIndex(
+//       (h) => h.address.toLowerCase() == morphies[i].address.toLowerCase()
+//     );
+//     let amount = BigInt(morphies[i].amount) * mpxPerMorphie;
+//     if (index == -1) {
+//       airdropReceivers.push({
+//         address: morphies[i].address,
+//         amount: amount,
+//         percent: 0,
+//       });
+//     } else {
+//       airdropReceivers[index].amount += amount;
+//     }
+//   }
+// }
 
 function blacklistEoas() {
   for (var i in EOA_BLACKLIST) {
@@ -205,22 +205,22 @@ function blacklistEoas() {
   }
 }
 
-function checkMorphieAirdropAmounts() {
-  var expected = BigInt(0);
-  var checked = BigInt(0);
-  for (var i in morphies) {
-    expected += BigInt(morphies[i].amount);
-  }
-  expected = expected * mpxPerMorphie;
-  for (var i in airdropReceivers) {
-    checked += airdropReceivers[i].amount;
-  }
-  console.log(`Checked:\t${checked}`);
-  console.log(`Expected:\t${expected}`);
-  if (expected != checked) {
-    throw new Error("Error in calculations, aborting...");
-  }
-}
+// function checkMorphieAirdropAmounts() {
+//   var expected = BigInt(0);
+//   var checked = BigInt(0);
+//   for (var i in morphies) {
+//     expected += BigInt(morphies[i].amount);
+//   }
+//   expected = expected * mpxPerMorphie;
+//   for (var i in airdropReceivers) {
+//     checked += airdropReceivers[i].amount;
+//   }
+//   console.log(`Checked:\t${checked}`);
+//   console.log(`Expected:\t${expected}`);
+//   if (expected != checked) {
+//     throw new Error("Error in calculations, aborting...");
+//   }
+// }
 
 function checkAndFixAirdropAmounts() {
   var sum = BigInt(0);
@@ -380,13 +380,13 @@ async function main() {
   // line break
   console.log("");
 
-  console.log("Adding morphies airdrop...");
-  addAirdropForMorphies();
+  // console.log("Adding morphies airdrop...");
+  // addAirdropForMorphies();
 
-  console.log("Checking morphie aidrop amounts...");
-  checkMorphieAirdropAmounts();
+  // console.log("Checking morphie aidrop amounts...");
+  // checkMorphieAirdropAmounts();
 
-  console.log("Blacklisting EOAs except morphies...");
+  console.log("Blacklisting EOAs...");
   blacklistEoas();
 
   console.log("Scaling LP amounts...");

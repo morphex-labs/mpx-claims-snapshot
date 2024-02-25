@@ -9,9 +9,9 @@ import {
   MPX_FTM_ADDRESS,
   MPX_FTM_BLACKLIST,
   MPX_FTM_CREATE_BLOCK,
-  MPX_FTM_EQL_LP_GAUGE_ADDRESS,
-  MPX_FTM_EQL_LP_PAIR_ADDRESS,
-  MPX_FTM_EQL_LP_PAIR_CREATE_BLOCK,
+  MPX_wMLP_FVM_LP_GAUGE_ADDRESS,
+  MPX_wMLP_FVM_LP_PAIR_ADDRESS,
+  MPX_wMLP_FVM_LP_PAIR_CREATE_BLOCK,
   MPX_FTM_FVM_LP_GAUGE_ADDRESS,
   MPX_FTM_FVM_LP_PAIR_ADDRESS,
   MPX_FTM_FVM_LP_PAIR_CREATE_BLOCK,
@@ -296,18 +296,18 @@ async function main() {
   console.log("Checking Snapshot data...");
   checkSnapshotCorrectness(holders, ts);
 
-  console.log("Getting MPX-FTM (EQL) LP holders...");
+  console.log("Getting MPX-wMLP (FVM) LP holders...");
   await snapshotERC20(
-    MPX_FTM_EQL_LP_PAIR_ADDRESS,
-    MPX_FTM_EQL_LP_PAIR_CREATE_BLOCK,
+    MPX_wMLP_FVM_LP_PAIR_ADDRESS,
+    MPX_wMLP_FVM_LP_PAIR_CREATE_BLOCK,
     snapshotBlock,
     tmpHolders
   );
-  let lpTsEq = await snapshotLPPair(MPX_FTM_EQL_LP_PAIR_ADDRESS, tmpHolders);
+  let lpTsEq = await snapshotLPPair(MPX_wMLP_FVM_LP_PAIR_ADDRESS, tmpHolders);
 
-  console.log("Getting MPX-FTM (EQL) LP stakers...");
-  await snapshotLpGauge(MPX_FTM_EQL_LP_GAUGE_ADDRESS, tmpHolders);
-  await changeLpToMpxAmounts(MPX_FTM_EQL_LP_PAIR_ADDRESS, lpTsEq, tmpHolders);
+  console.log("Getting MPX-wMLP (FVM) LP stakers...");
+  await snapshotLpGauge(MPX_wMLP_FVM_LP_GAUGE_ADDRESS, tmpHolders);
+  await changeLpToMpxAmounts(MPX_wMLP_FVM_LP_PAIR_ADDRESS, lpTsEq, tmpHolders);
 
   var sum = BigInt(0);
   console.log("len", holders.length);
@@ -333,11 +333,11 @@ async function main() {
   // Filter out LP and Gauge (only amountLp)
   holders = holders.filter(
     (holder) =>
-      holder.address.toLowerCase() != MPX_FTM_EQL_LP_PAIR_ADDRESS.toLowerCase()
+      holder.address.toLowerCase() != MPX_wMLP_FVM_LP_PAIR_ADDRESS.toLowerCase()
   );
   holders.find(
     (holder) =>
-      holder.address.toLowerCase() == MPX_FTM_EQL_LP_GAUGE_ADDRESS.toLowerCase()
+      holder.address.toLowerCase() == MPX_wMLP_FVM_LP_GAUGE_ADDRESS.toLowerCase()
   )!.amountLp = BigInt(0).toString();
 
   console.log("Checking Snapshot data...");
