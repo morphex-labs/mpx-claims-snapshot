@@ -139,10 +139,9 @@ function checkScaledLpSum() {
   return scaledSum;
 }
 
-function transformAmounts(tokensPerAmount: bigint) {
-  for (var i in airdropReceivers) {
-    airdropReceivers[i].amount =
-      (airdropReceivers[i].amount * tokensPerAmount) / BigInt(1e18);
+function transformAmounts(tokensPerMpxNum: bigint, tokensPerMpxDen: bigint) {
+  for (var i = 0; i < airdropReceivers.length; i++) {
+    airdropReceivers[i].amount = (airdropReceivers[i].amount * tokensPerMpxNum) / tokensPerMpxDen;
   }
 }
 
@@ -321,12 +320,9 @@ async function main() {
   console.log("Scaling LP amounts...");
   scaleLpAmounts();
   let allMpx = checkScaledLpSum();
-  let tokensPerMpx = (airdropAmount * BigInt(1e6)) / allMpx;
-
-  console.log(`oBMX per 1 MPX: ${tokensPerMpx}`);
 
   console.log("Transforming token amounts...");
-  transformAmounts(tokensPerMpx);
+  transformAmounts(airdropAmount, allMpx);
 
   console.log("Checking airdrop amounts...");
   checkAndFixAirdropAmounts();
