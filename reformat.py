@@ -1,6 +1,6 @@
 import json
 
-FOLDER = "data/7_Mar-13-2025_103.5k"
+FOLDER = "data/7_Mar-13-2025_84k"
 INPUT_FILE = f"{FOLDER}/mpx_final_snapshot_ftm_105217394_bsc_46881358.json"
 FTM_RAW_FILE = f"{FOLDER}/mpx_ftm_snapshot_105217394.json"
 BNB_RAW_FILE = f"{FOLDER}/mpx_bnb_snapshot_46881358.json"
@@ -33,19 +33,22 @@ def reformat_json(input_file, ftm_raw_file, bnb_raw_file, output_file):
 
     for item in input_data:
         amount_usdc = float(item.get("amount", 0)) / 1e6
-        item["amountUsdc"] = amount_usdc
-        item.pop("amount", None)
+        item["amountUsdcAirdrop"] = amount_usdc
+        percent = round(item["percent"], 6)
+        item["percent"] = round(item["percent"], 6)
+        item.pop("percent", 0)
+        item.pop("amount", 0)
         address_lower = item.get("address", "").lower()
 
-        if address_lower in ftm_dict:
-            ftm_info = ftm_dict[address_lower]
-            item["amountMpxOnFtm"] = ftm_info["amount"]
-            item["amountLpOnFtm"] = ftm_info["amountLp"]
+        ftm_info = ftm_dict.get(address_lower, {"amount": 0, "amountLp": 0})
+        item["mpxOnFtm"] = round(float(ftm_info["amount"])/1e18, 2)
+        item["mpxLpOnFtm"] = round(float(ftm_info["amountLp"])/1e18, 2)
 
-        if address_lower in bnb_dict:
-            bnb_info = bnb_dict[address_lower]
-            item["amountMpxOnBsc"] = bnb_info["amount"]
-            item["amountLpOnBsc"] = bnb_info["amountLp"]
+        bnb_info = bnb_dict.get(address_lower, {"amount": 0, "amountLp": 0})
+        item["mpxOnBsc"] = round(float(bnb_info["amount"])/1e18, 2)
+        item["mpxLpOnBsc"] = round(float(bnb_info["amountLp"])/1e18, 2)
+
+        item["percent"] = percent
 
     with open(output_file, 'w') as f:
         json.dump(input_data, f, indent=2)
