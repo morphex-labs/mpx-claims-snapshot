@@ -1,11 +1,6 @@
 # Morphex Snapshot
 
-Create snapshot of MPX and Morphies NFT holders, including:
-- Thena MPX-BNB LP
-- FVM MPX-FTM LP
-- Equalizer MPX-FTM LP
-- single-staked MPX
-- MPX held in wallets
+Create snapshot of MPX holders.
 
 All contract addresses are filtered out, in addition to addresses on a blacklist.
 
