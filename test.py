@@ -1,6 +1,6 @@
 import json
 
-FILE_PATH = "data/7_Mar-13-2025_141k/mpx_final_snapshot.json"
+FILE_PATH = "data/mpx_final_snapshot.json"  # /7_Mar-13-2025_141k
 
 
 def sum_test(file_path):

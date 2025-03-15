@@ -3,6 +3,7 @@ import mpxBnbAbi from "../abi/mpx_bnb.json";
 import pairAbi from "../abi/pair.json";
 import rewardTrackerAbi from "../abi/reward_tracker.json";
 import gaugeAbi from "../abi/gauge_v2.json";
+import esmpxAbi from "../abi/esmpx.json";
 import * as fs from "node:fs/promises";
 import {
   INCREMENT,
@@ -18,6 +19,7 @@ import {
   MPX_FTM_REWARD_TRACKER_ADDRESS,
   MPX_FTM_REWARD_TRACKER_CREATE_BLOCK,
   MpxHolder,
+  esMPX,
 } from "../utils/constants";
 import { BigNumberish, EventLog } from "ethers";
 import { markContracts, retry, snapshotERC20 } from "../utils/helpers";
@@ -88,6 +90,7 @@ async function snapshotHolders(snapshotBlock: number): Promise<MpxHolder[]> {
         address: key,
         amount: balances[key].toString(),
         amountLp: BigInt(0).toString(),
+        amountEsmpx: BigInt(0).toString(),
         isContract: false,
       });
     }
@@ -214,12 +217,46 @@ async function changeLpToMpxAmounts(
 
 function sortHolders(holders: MpxHolder[]) {
   holders.sort((a: MpxHolder, b: MpxHolder) => {
-    let aMount: bigint = BigInt(a.amount) + BigInt(a.amountLp);
-    let bMount: bigint = BigInt(b.amount) + BigInt(b.amountLp);
+    let aMount: bigint = BigInt(a.amount) + BigInt(a.amountLp) + BigInt(a.amountEsmpx);
+    let bMount: bigint = BigInt(b.amount) + BigInt(b.amountLp) + BigInt(b.amountEsmpx);
     if (aMount > bMount) return -1;
     else if (aMount < bMount) return 1;
     else return 0;
   });
+}
+
+async function snapshotEsmpxBalances(snapshotBlock: number) {
+  const esmpxScalingRaw = process.env.ESMPX_SCALING_FACTOR;
+  if (!esmpxScalingRaw) {
+    throw new Error("Missing ESMPX_SCALING_FACTOR in environment");
+  }
+  const scale = parseFloat(esmpxScalingRaw);
+  const scaleInt = BigInt(Math.round(scale * 1e6));
+
+  let esmpxContract = await ethers.getContractAt(esmpxAbi, esMPX, undefined);
+  let rewardTracker = await ethers.getContractAt(
+      rewardTrackerAbi,
+      MPX_FTM_REWARD_TRACKER_ADDRESS,
+      undefined
+  );
+
+  let bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  bar.start(holders.length, 0);
+
+  for (let i = 0; i < holders.length; i++) {
+    bar.update(i + 1);
+    let rawBalance = await esmpxContract.balanceOf(holders[i].address, {
+      blockTag: snapshotBlock,
+    });
+    let stakedEsmpx: bigint = await rewardTracker.depositBalances(
+        holders[i].address,
+        esMPX
+    );
+    let totalRawBalance = BigInt(rawBalance) + stakedEsmpx;
+    let scaledBalance = (totalRawBalance * scaleInt) / BigInt(1_000_000);
+    holders[i].amountEsmpx = scaledBalance.toString();
+  }
+  bar.stop();
 }
 
 async function main() {
@@ -321,6 +358,7 @@ async function main() {
         address: tmpHolders[i].address,
         amount: BigInt(0).toString(),
         amountLp: tmpHolders[i].amountLp,
+        amountEsmpx: BigInt(0).toString(),
         isContract: false,
       });
     } else {
@@ -343,13 +381,41 @@ async function main() {
   console.log("Checking Snapshot data...");
   checkSnapshotCorrectness(holders, ts);
 
-  // Filter out previous holders
-  holders = holders.filter(
-    (holder) => BigInt(holder.amount) + BigInt(holder.amountLp) > 0
-  );
-
   console.log("Marking contracts...");
   await markContracts(holders);
+
+  {
+    const overrideAddr = "0x8Bac2F2Dd406270578265f5CF296395517CE398c";
+    const idx = holders.findIndex(
+        (h) => h.address.toLowerCase() === overrideAddr.toLowerCase()
+    );
+    if (idx !== -1) {
+      holders[idx].isContract = false;
+      console.log(`Overrode isContract=false for ${overrideAddr}`);
+    } else {
+      console.log(`Forcing override address into snapshot: ${overrideAddr}`);
+      let mpx = await ethers.getContractAt(mpxBnbAbi, MPX_FTM_ADDRESS, undefined);
+      let overrideMpxBalance = await mpx.balanceOf(overrideAddr, { blockTag: snapshotBlock });
+      holders.push({
+        address: overrideAddr,
+        amount: overrideMpxBalance.toString(),
+        amountLp: "0",
+        amountEsmpx: "0",
+        isContract: false,
+      });
+      console.log(
+          `Added override address with MPX balance: ${overrideMpxBalance.toString()}`
+      );
+    }
+  }
+
+  console.log("Snapshotting esMPX balances...");
+  await snapshotEsmpxBalances(snapshotBlock);
+
+  holders = holders.filter(
+      (holder) =>
+          BigInt(holder.amount) + BigInt(holder.amountLp) + BigInt(holder.amountEsmpx) > 0
+  );
 
   console.log("Excluding contracts and blacklisted addresses...");
 

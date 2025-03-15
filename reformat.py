@@ -1,6 +1,6 @@
 import json
 
-FOLDER = "data/7_Mar-13-2025_141k"
+FOLDER = "data"  # /7_Mar-13-2025_141k
 INPUT_FILE = f"{FOLDER}/mpx_final_snapshot_ftm_105217394_bsc_46881358.json"
 FTM_RAW_FILE = f"{FOLDER}/mpx_ftm_snapshot_105217394.json"
 BNB_RAW_FILE = f"{FOLDER}/mpx_bnb_snapshot_46881358.json"

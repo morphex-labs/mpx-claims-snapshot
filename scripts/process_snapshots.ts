@@ -57,22 +57,35 @@ async function loadData() {
 }
 
 function scaleLpAmounts() {
+  var specialOverrideAddr = "0x8Bac2F2Dd406270578265f5CF296395517CE398c";
+  var specialAddressFound = false;
+
   for (var i in ftmholders) {
     let holder = ftmholders[i];
     var lpScaled =
       (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
+    var esmpxAmount = holder.amountEsmpx ? BigInt(holder.amountEsmpx) : BigInt(0);
     var index = airdropReceivers.findIndex(
       (h) => h.address.toLowerCase() == holder.address.toLowerCase()
     );
-    if (lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
+    if (
+        holder.address.toLowerCase() == specialOverrideAddr.toLowerCase() ||
+        (lpScaled + BigInt(holder.amount) + esmpxAmount >= BigInt(52000000000000000000))
+    ) {
+      if (holder.address.toLowerCase() == specialOverrideAddr.toLowerCase()) {
+        specialAddressFound = true;
+        console.log(
+            `Including special address override regardless of balance: ${specialOverrideAddr}`
+        );
+      }
       if (index == -1) {
         airdropReceivers.push({
           address: holder.address.toLowerCase(),
-          amount: BigInt(holder.amount) + lpScaled,
+          amount: BigInt(holder.amount) + lpScaled + esmpxAmount,
           percent: 0,
         });
       } else {
-        airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled;
+        airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled + esmpxAmount;
       }
     }
   }
@@ -80,42 +93,68 @@ function scaleLpAmounts() {
     let holder = bnbHolders[i];
     var lpScaled =
       (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
+    var esmpxAmount = BigInt(0);
     var index = airdropReceivers.findIndex(
       (h) => h.address.toLowerCase() == holder.address.toLowerCase()
     );
-    if (lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
+    if (
+      holder.address.toLowerCase() == specialOverrideAddr.toLowerCase() ||
+      (lpScaled + BigInt(holder.amount) + esmpxAmount >= BigInt(52000000000000000000))
+    ) {
+      if (holder.address.toLowerCase() == specialOverrideAddr.toLowerCase()) {
+        specialAddressFound = true;
+        console.log(
+          `Including special address override regardless of balance: ${specialOverrideAddr}`
+        );
+      }
       if (index == -1) {
         airdropReceivers.push({
           address: holder.address.toLowerCase(),
-          amount: BigInt(holder.amount) + lpScaled,
+          amount: BigInt(holder.amount) + lpScaled + esmpxAmount,
           percent: 0,
         });
       } else {
-        airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled;
+        airdropReceivers[index].amount += BigInt(holder.amount) + lpScaled + esmpxAmount;
       }
     }
+  }
+
+  if (!specialAddressFound) {
+    console.warn(
+        `WARNING: Special address ${specialOverrideAddr} not found in either FTM or BNB lists!`
+    );
   }
 }
 
 function checkScaledLpSum() {
   var sum = BigInt(0);
   var sumLp = BigInt(0);
+  var sumEsmpx = BigInt(0);
   var scaledSum = BigInt(0);
+  var specialOverrideAddr = "0x8Bac2F2Dd406270578265f5CF296395517CE398c";
 
   for (var i in ftmholders) {
     let holder = ftmholders[i];
     var lpScaled =
       (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
-    if (lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
+    var esmpxAmount = holder.amountEsmpx ? BigInt(holder.amountEsmpx) : BigInt(0);
+    if (
+      holder.address.toLowerCase() == specialOverrideAddr.toLowerCase() ||
+      (lpScaled + BigInt(holder.amount) + esmpxAmount >= BigInt(52000000000000000000))
+    ) {
       sum += BigInt(ftmholders[i].amount);
       sumLp += BigInt(ftmholders[i].amountLp);
+      sumEsmpx += esmpxAmount;
     }
   }
   for (var i in bnbHolders) {
     let holder = bnbHolders[i];
     var lpScaled =
       (BigInt(holder.amountLp) * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
-    if (lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000)) {
+    if (
+      holder.address.toLowerCase() == specialOverrideAddr.toLowerCase() ||
+      (lpScaled + BigInt(holder.amount) >= BigInt(52000000000000000000))
+    ) {
       sum += BigInt(bnbHolders[i].amount);
       sumLp += BigInt(bnbHolders[i].amountLp);
     }
@@ -124,7 +163,7 @@ function checkScaledLpSum() {
     scaledSum += airdropReceivers[i].amount;
   }
 
-  let checked = scaledSum - sum;
+  let checked = scaledSum - sum - sumEsmpx;
   let expected = (sumLp * BigInt(lpScalingFactor * 1000)) / BigInt(1000);
   console.log(`Scaled:\t\t${checked}`);
   console.log(`Expected:\t${expected}`);
