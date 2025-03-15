@@ -1,0 +1,1654 @@
+[
+  {
+    "address": "0x31d3243CfB54B34Fc9C73e1CB1137124bD6B13E1",
+    "amount": "76848401690257276172093",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x44A0A2423113C1914993C43D2b063F7BeC7123a2",
+    "amount": "61395000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3c5Aac016EF2F178e8699D6208796A2D67557fe2",
+    "amount": "28417983258262521128592",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xcd371031aCC64a167c5EC894CA14428C2bD272A3",
+    "amount": "17410258214938219682277",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x9aCf8D0315094d33Aa6875B673EB126483C3A2c0",
+    "amount": "13140706470030507065099",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8D67e093E2f6434695A6825f3013e8a79105A8AF",
+    "amount": "9586906649319674514710",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7532A096bE1a39A87aF68e3b27e06dde7065E87F",
+    "amount": "4859814602640796330093",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3BB4f64D49Cb140D764fB01E3B0F8d185B34948B",
+    "amount": "3737893744120723017105",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xe94E20d0e6A1f3c340ABB4f07823B2b96BE05423",
+    "amount": "3139527675541653703710",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x48E53189a4AfF640ce484D89b270c4AedfE4E7Cc",
+    "amount": "2427697193791874358387",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6Bc565388041FC007cF0611C3AB622C4b71Ae4d9",
+    "amount": "2207322161083098099848",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xAcB3fc61950A0e94B6b15679aCec54476A842127",
+    "amount": "1773524989591842059535",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xe11E83689bfA6268cC8C815C29E47520A7954E1D",
+    "amount": "1650086809486124497999",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x455D87326C21750cfc2f782873D3b52E0492086f",
+    "amount": "21153",
+    "amountLp": "1610677064461343228108",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1a93c570251ec9cE34216AF5EEe618097026bd06",
+    "amount": "1421258930450253441740",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x5B5bEEBed201470d3864b835dB6F96bBe84bB1eC",
+    "amount": "1175397002772590725701",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7Edb3dA7E59593b40C974eAC178855fA9Cd9a7fd",
+    "amount": "1118332598889475394619",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x678252Cd85e79d0022C6e8FcDB09cF3771ec1e89",
+    "amount": "1000000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xbEE2D469AACB46251aE33Cca91F482e26c971dFF",
+    "amount": "56893",
+    "amountLp": "990087637382962481059",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3ab0e4D61E48cB85c48063687A4124077046a25A",
+    "amount": "899308835308556803356",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x353c1f0bc78fbbc245b3C93ef77b1DCC5b77D2A0",
+    "amount": "660922101213153668337",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7869901B01F941b242367981B9965c88F2a61fda",
+    "amount": "578939051015940370752",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF67AffbCfaa9A6E2888EB1f754D83b3acAbFeEAa",
+    "amount": "570294517197665402598",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3ec783B1C10d39F1653C20C821E0ed810eAf6A2e",
+    "amount": "561976110035466744110",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF9582eE8d039a0BbE863fF6FD4a9eB4F827fe6d6",
+    "amount": "529887196902980153226",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x038F73d640CdC3DDb1c3B03EE90e65056A7D3619",
+    "amount": "492924270467311410049",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xC3193E39F77c2Ed59045CfFfCDCACdDa72f29987",
+    "amount": "448776153323090910054",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1EA99aaba08334D531f753863A68D99739e60037",
+    "amount": "369256872561129512115",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xE0bA13BC43000d3073B680E65b44b357d2c8cdD7",
+    "amount": "328804226389438599198",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xe3964b997f1c7E6dee6EF028D7d2E6BBd3532AcC",
+    "amount": "297517792364282090309",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x51b52cEcE45003406C8a0798750da2482BFdFe0D",
+    "amount": "261000522604572530174",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x37cE210E4B5a1525764e07bc95cb527a9Cef4B04",
+    "amount": "243108393499290492781",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3E7b8D12D4De6CB284A7d60Bf92B462D2a6d6A2F",
+    "amount": "241008720233505364874",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xE5ebC33267Dda14a1eEFf4d09eaEAF8032f8F188",
+    "amount": "231027409347073470367",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x94d11b6A48413D45efcF2e113019588716E949B1",
+    "amount": "186698751059927669196",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xC7ca414500B4D12628c7F67fe0BD10698346413a",
+    "amount": "173883571345306681838",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x4612a35EfCF4E1Dc2bBf8efe273D6c9057a9Dfe0",
+    "amount": "116926152544643068884",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xaA50F74E77EC62581F7556404a1F3d58ED830117",
+    "amount": "112095551157804103293",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xbe61858c817A6A17774F8079A5Fbf9D1896f3736",
+    "amount": "111514895377640919358",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x806767F8a7701ED44888dc443088Ba3a3916D848",
+    "amount": "105767439756796299329",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xeC8804867a84cFB397debAD4e1BfFb1F015bd7E1",
+    "amount": "104541460301855391242",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x77CaE05D7F99Ef42c023ddD191Fe7690A182797C",
+    "amount": "103986630582893628391",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x481015C955428F9658FF95Abed6e82C47818Fa91",
+    "amount": "102231776897613121978",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xeBc462355194903ad1AD32fa767B3B74D5acA278",
+    "amount": "100900637924775104565",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1C538a49d5bF13d53a663ea7Ac101fa77995982d",
+    "amount": "100259860981280073475",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x273594982a69C2d44915ff56Cdce21Ad85FBC1b3",
+    "amount": "100000000984017393555",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3D72A0EE73159F73183333942CC1E511d9b35636",
+    "amount": "100000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF24A0018befb3D7503b46c110f83D927d64E727d",
+    "amount": "98485948252649282074",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF5c2151F5dF566FE4A3E611e442c87DE73E8cCa7",
+    "amount": "91413502958303560842",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xa89fB3fdDa863aaB28A11DB679eAc0c500595B96",
+    "amount": "88751373556940704095",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x724F49d5F2B323801b86819b726d3364bbEC2401",
+    "amount": "86968555233693299333",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8EBD118444D8239505D66c8Cb6Ee36eee6aBED5e",
+    "amount": "86858502383344810713",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x368955eFB1bF001683cb5F7AB223380CAf0b86e5",
+    "amount": "85986535373205667201",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6a018Ad51DE844243ce7FB743c3E5F4481DF6858",
+    "amount": "84653485958828230636",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xaa8BDB60eE28E7616Bfe4867f58BfE4EDF858271",
+    "amount": "83486701526749562603",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xa4722a7A8a79E0de7B568559261D789f0B80baDC",
+    "amount": "80365767468525488645",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x5478E1CF9f8bc1159533069a7BAFD5C5ACEBDE0D",
+    "amount": "79938814686974517168",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x0A83985E4A6E8Dae2B67beD4f2d9268f6806Ce00",
+    "amount": "76724323539378052090",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF15fB463928E32447fC4a1F67B97977b57c79A20",
+    "amount": "67530317049428898056",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x72927c0917FC1C9539215ecD51394bADF48226DE",
+    "amount": "67391194872451735119",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x2E06Bb4DDbF3F14516E6fb65e94CB84944Aae8da",
+    "amount": "66919060771207507779",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x9cdcc32B5D55dEfB81E926bfFb8580B45F8BC185",
+    "amount": "64499053524317301135",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xBAE6379ACaEe0FD0d5922CABa1895292533B6FB9",
+    "amount": "62856203038345459784",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x464bFb8838F89c08EfAd08Ac504efB3538Ec8813",
+    "amount": "62789466600510720489",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xd5d106d5fAb76284447F3e50C757AF144c3A4DfE",
+    "amount": "62058451414657364899",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x779c1305d19A61ce5C460Eb8e854e27491013a56",
+    "amount": "61099697548635937334",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF1671395A930b5214dE07F5D5e9a9752E5DFB5Fc",
+    "amount": "59992474735317524480",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7cAEa457224C345d1518a23FBd07ebDBdD21170C",
+    "amount": "56539670505311667434",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xa30CD5dd06af83407d7a56094463E89122360388",
+    "amount": "56151237961625271491",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x56ad9251a50E1C46AC315e4822aF5B16b51Ac1Bc",
+    "amount": "55882678400623085743",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x41DBA5F28Bf123B4389B48D8c19f4dBcA43ccDB3",
+    "amount": "55482869027874196621",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x0EcA5Bd7b78603C3A4B3292914C98b94500f843A",
+    "amount": "52760807268196953609",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xd692a8b22ADEE210234a7fb00510E300411a8B93",
+    "amount": "52735993801572727181",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xb495023D8Eb9526D8EC346703f2CFf12F2A6963d",
+    "amount": "52608290962962916898",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x324B880C36b107b51b8e8F617b8ab0883e26243C",
+    "amount": "50302239000493751289",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xB3Cb0FC1693faBDFe06A7ff66011655D30bec9bb",
+    "amount": "49735466644096914472",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x83090029C7F7C50B2c365648161C2F9C36bc58BD",
+    "amount": "49228337773946234533",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7403d5ca2a216b5508950Ce6d7F9E88641B50cb6",
+    "amount": "48628414857570364723",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x964807257f25B2933A494d8d8f5262A51E36992d",
+    "amount": "47246053712648752415",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x204Bf175e4e7065BB272AEE97704FC34390fbaA6",
+    "amount": "46631555908541391739",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x94E08736426948C5f463ac243416f0473F680b2B",
+    "amount": "46418274964369170269",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xB0EB6F452ECeA6A76fDa435B4629cF6a11b24a2a",
+    "amount": "45291008373494511324",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x96fB5754eCb9Ec62B6A48479f255D78d5211462c",
+    "amount": "43950804537271116398",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x26124cAA9929fad751bDf274966487ba8D54D333",
+    "amount": "43541341860394588542",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xCB04fE798f05f117cee4a65673D74255a5234c89",
+    "amount": "41791378221129874429",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x86686991972F9c8De5b59c0eeA577a944c2568dc",
+    "amount": "40935179002704642081",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x96A6f29ca861B7420c586E070Fbc767E357BA821",
+    "amount": "40536042221482216772",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x9544e0500407dad0765b11c67D6c94645Cf343Ca",
+    "amount": "792474611692382500",
+    "amountLp": "37387726962747490419",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1185881673EBD0Cc86cf36E9d15ca0fd6C3b29ae",
+    "amount": "37154521798353203218",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7090E87630B772076f6551c0aDbC6fcE4143FF9F",
+    "amount": "36635684501753638602",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xAc1b80e06f970879BfB8f2b92B59442593f332b6",
+    "amount": "35852509493720555914",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xE8823C81483C4B98709C20d14237D304D9152D0E",
+    "amount": "35225804966322329702",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x708dF04E03AC02c440937Be6e631FA8B46CB89bC",
+    "amount": "35158062969106724808",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x332A0CbcfE4812B32595D496079B78457B91d673",
+    "amount": "31494394836285354903",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x73064f6C1C5dad8d917782aec16aB564feB3c011",
+    "amount": "30703748594365476526",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3288Ad9b8E7D32F698AC35dE51ccC18373e33a85",
+    "amount": "29466981665016199023",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xE2c3EaEDBb31F69CA49D65D26c1F889Cc4E1bB60",
+    "amount": "27468756360077291322",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x079137519d88bE75E0080C2eA53a02F0E7070158",
+    "amount": "27288701778221677091",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7d6cD243A84730a26713344D145811E31DC508ab",
+    "amount": "27263160455338090803",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x17114903eB90909D3058dAE24D583E5970030FFb",
+    "amount": "27003620465748802288",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x99E8799914Fe0CAfcDb9E852832Ada956E14Db39",
+    "amount": "26829281241824238169",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8690B0D3E839d48d4c5845b9f9005e7d8923C567",
+    "amount": "26595672292322384408",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x98076110c0D195B468d5776Ad89004C5864Ffc6d",
+    "amount": "26269909080376866338",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x37e19f578D9ccdD41aF8Ff8aF916A4673Cd8096f",
+    "amount": "25903022280861216322",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1d8b6fA722230153BE08C4Fa4Aa4B4c7cd01A95a",
+    "amount": "25797166690095896646",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xcb4d5E7026C3F86348C80D918bA9E511295399f1",
+    "amount": "25399601376801291031",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x691fB95440364d04E5a5915b48d6297C721Ca5af",
+    "amount": "25327044244070978713",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3b691942aa22A118a449dfF991cB2F215429Aa30",
+    "amount": "24079252807046870670",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xf6eD81D5E9F61dd1eA21E96Ae1D660ECc388AE4F",
+    "amount": "23802477215537806152",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xd7282E3F20683DCa820bb3B5De7267ED6A4385Cd",
+    "amount": "23660464937239727568",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xCed3FC4610761F79242D7D8A72FE86F3A1c626b4",
+    "amount": "23110929280587240924",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x286baB64F70880DD6b3f895fb926c6DC8B594b77",
+    "amount": "22626438865021964654",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x47bE446eEA8C7d451Ea644786C158bD756fc8651",
+    "amount": "22530932347546632204",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x167D87A906dA361A10061fe42bbe89451c2EE584",
+    "amount": "22150400023511357839",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x69bbBfDE43c49fc50f5647223dA5ef4756D78659",
+    "amount": "21863134530706705783",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x110d16292db23bF99Bde9B227ca910B319043349",
+    "amount": "21742698164994399821",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x95C3F3f5F805E604462dfD51FBea5330f5963B35",
+    "amount": "21114923037814605405",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xc4C8a56f9392112c780DdC0e9DF9C49FA685831D",
+    "amount": "20076398886476200007",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7A0385af790567E65D2e22Db526b8ce945dee335",
+    "amount": "19396125746805555657",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xF9495f1347B006b73d0Ac1CE532D4776a6313C18",
+    "amount": "19359510407225069146",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x76d2DDCe6b781e66c4B184C82Fbf4F94346Cfb0D",
+    "amount": "19069976015146126275",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8EfEA4475dED9A1B41f862cBfC9956a428507315",
+    "amount": "18086810613552226295",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xC1C79C6378e5A72895C8eA15fc6Dd59fFddc8dee",
+    "amount": "16640450530641596772",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xecd63a6E172D4600E00EdFAe54C9F9867FaC9EEf",
+    "amount": "15709505061683664752",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7511ec0e7a8e2E0e826F28C1Bc72befD84EA3e21",
+    "amount": "15663509082233313942",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xEC5b22756D0191fBbB4AFffDd5ae2A660538D196",
+    "amount": "15505678222208585213",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xD5eFE4E5C3750AD415EDDeC9f52CfF975f1Ee7ae",
+    "amount": "15296407754727833122",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x39e15282215F49a8C3eA92C43274B1597DC2fFd7",
+    "amount": "14852713690778265697",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x14a0567B9096E08aC7d7440eE5ce6e8C4Ae7fD4F",
+    "amount": "14463645904596033848",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xd6B598C0D187c5d190f12f1034FBa11C300e06fA",
+    "amount": "13783002443292977898",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x4DD4daA34E912ff22204F4AEbF97f30c7C3Aaa79",
+    "amount": "12966886793032058233",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xBaa9B493bCCBe1A900b39870980f41356f85822a",
+    "amount": "12817129419381447112",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x51138d94D6713fbc2e30c31707e95Ad5E4638d47",
+    "amount": "12722414555338930370",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xCAc0Eb798903FFE73aB1776da3174E6E40e721c6",
+    "amount": "10851702216843422610",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x54bf48b227Bb531B873a4Ce734B592397aDAd6F5",
+    "amount": "10828877229015647133",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x30d41eA111355a3EDf8a67e6c61A2e21ccE6e085",
+    "amount": "10415659167032303739",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xE76f1230c61160206306CB55e524d5843bAD697a",
+    "amount": "10363597124319078678",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7d5e00c155B1E061AB7E760D1eE9f0b65561a223",
+    "amount": "10334434673644641288",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x24bEea41cFFa17da40ECbc8c53A60dB9C4c7470B",
+    "amount": "10076586503937435519",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xcb879f75c93F3Cd545a7955f41419A96817Cc5D9",
+    "amount": "10071979136718159767",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x439832E01A9C97F20374972027Aad4B73845ff32",
+    "amount": "10060095912283912747",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6f9b3A77E96Df49C7b0F0423F371FC7F22EC6cC4",
+    "amount": "10000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xB1dD2Fdb023cB54b7cc2a0f5D9e8d47a9F7723ce",
+    "amount": "10000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x5bcEe86a35d8c4532c61e47f9756F3EB16602923",
+    "amount": "9495489525764759672",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xD7d95996393b3E144eCEa674324226e0529Ed543",
+    "amount": "9310016051762275412",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1BE6535F946c782fD6c35A2e5FD0fdC8BC6Edc92",
+    "amount": "8392775988818033207",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x5708DF8c01d2bcEC22DFa66c501E27c197ba2470",
+    "amount": "8266439313264828189",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xC6bb80aC6fE401772D1FDeeD497da201241A5bF4",
+    "amount": "8064731621426711497",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xdD45475a15dB44Fd8B2b382D3eC6d3C3822Dc3A5",
+    "amount": "8037316343614075728",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xb032D1D82C91a8685b12277279D5E220fe65a1C4",
+    "amount": "7836239124262978080",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6e0F0d25008488f9c8F883a84e2ad3603b59624c",
+    "amount": "6909902159834116164",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xb9F834e8882c42aD129096d4a0c22308969d26Ad",
+    "amount": "6699219200338647362",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xE85Fc09D80E47C9DdDD85147546361a6990FBabf",
+    "amount": "6667803122550071957",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xe5845761e7773976055F2559ca54be41F09d9E88",
+    "amount": "6507272621030156460",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x67adfab056EDc1a03602139b8AC36a06fC62F1Bb",
+    "amount": "6135490374890307645",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6C7ecAC9D6c392980d58b594Aa458b7b45E77471",
+    "amount": "5795435510591177241",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x0A9159c49128732FA47fd45635736A4B3A8DF75a",
+    "amount": "5694955471419631701",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x9187787FCf2ce408E1A54032B8096731fe795153",
+    "amount": "5409641998335983080",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6c1c420C04F4D563d6588a97693aF902b87Be5f1",
+    "amount": "5071110373870511237",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xDc6BDe1D6c33FFa3B817771a9F5dFd275FD62882",
+    "amount": "4965282440401793522",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xc10772B4b5dfD0799bcBc6348980ddEA350Bb1C9",
+    "amount": "4799726000377040595",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1466D84CB04940A504574AB02D130a8F3185839c",
+    "amount": "4234961561248025567",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xb8187b9ef4f81061Ee346f0e320896A881542E10",
+    "amount": "4185275289340012936",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xBf7B3fD6835f8b5220A07bC8B38d5A5324a93e8C",
+    "amount": "4158735798135196058",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7091029f6bf7aacf457532ea56BAdb8bE9374cC8",
+    "amount": "4103215459621624530",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x39041F1B366fE33F9A5a79dE5120F2Aee2577ebc",
+    "amount": "4081796275844783163",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xAF4b8d2214A6e486A9e7b142fDC0c14323022b02",
+    "amount": "4035331256538229710",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x26104E298811d5e91EF2103150efC4B825AD7DFb",
+    "amount": "3949892321549727433",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1914b09A29670E7C746a8757eA3Df26c0350Bff2",
+    "amount": "3941786492810249021",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xbbAE0E0795294Bb37F9B7CEE715E7F15602f67DD",
+    "amount": "3633535246449811447",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x13AFB9b5780cd9Ae79c61503Adb69c57845d8EAc",
+    "amount": "3372366477709947974",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x5E535c3894b5eEacAB0DD8995870aE2CB1a6655B",
+    "amount": "3185861620350970274",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x98C52FEeA24bc24B1c5c01A103828F6e8EB3d3Dd",
+    "amount": "3171191669893502432",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x77fE39B03C4BcF9f1495ebFCaF1E7dE972C53ed7",
+    "amount": "3040495809667807906",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x19312C283892c80bB94beE87e88D6E726b377a1d",
+    "amount": "2798717775292335710",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xFbD5D5b5D4Af2cf4fC27c3C46921d122794eC818",
+    "amount": "2540490866624851691",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x2Bdf1DCfD13D4f7e2c3D160E3D92Aaf6A5e89150",
+    "amount": "2343799249472773183",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x94F94f0bcdFe296F4E94A8e3065D6d1d326D4a65",
+    "amount": "2288803388366409884",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x29bCCe0253c52780452103BcF09C60d848bDD91d",
+    "amount": "2090429106761765922",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xe6D61066d65D0aeF84b7013959488A7Ba1bC92cE",
+    "amount": "2054919454957434800",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x89955a99552F11487FFdc054a6875DF9446B2902",
+    "amount": "2000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x43fcd9380793F18350025D5702109264C722CC83",
+    "amount": "1884072979649637308",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6887b5852847dD89d4C86dFAefaB5B0B236DCD8a",
+    "amount": "1883499532567779469",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xb062E4fA99881F14eCD48B17cF3e8b6C06c8eDC6",
+    "amount": "1805334636472854088",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x6D4ed8a1599DEe2655D51B245f786293E03d58f7",
+    "amount": "1618402308924204527",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xd98c64c40CF4Bcd97298EfC89C065635e7008171",
+    "amount": "1366533615659855566",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x29F82d09C2AfD12f3c10ee49CD713331f4A7228E",
+    "amount": "1336890083586239610",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x4334703B0B74E2045926f82F4158A103fCE1Df4f",
+    "amount": "1332178915320399029",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x5Be66f4095f89BD18aBE4aE9d2acD5021EC433Bc",
+    "amount": "1243661284933285163",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7a32AbeA0f841c170905cED3C618591b3F713938",
+    "amount": "1192099174214851404",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x30e977A07BB42a5208ad008d0B583A108CcB8833",
+    "amount": "1000000000000000007",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xA57ADCE1d2fE72949E4308867D894CD7E7DE0ef2",
+    "amount": "1000000000000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xB0720A40d6335dF0aC90fF9e4b755217632Ca78C",
+    "amount": "935289795335292872",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x22BF900Bdfd4CdF0aF25e142BF0d12F383C6bA75",
+    "amount": "891606220930477730",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x66D870F9a9Fc9Fffa72D0935Ea5D7d3B51b7b665",
+    "amount": "858201387061556817",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8cB4E81949AFB93c93292cb2f689ec789c716a33",
+    "amount": "810976563862141760",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x3B531d71776C912c9954976911E58FA1185f847d",
+    "amount": "766430758431510156",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x000cb9508eed7802D706c8518eE1AD00F962d712",
+    "amount": "749300365351800402",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x7eB1821aC65c5387E82eF2e26eAE7c49E7Ba0F19",
+    "amount": "744365344583204975",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xD08624Cdbd8646a74C24565deb103001215d0Bf6",
+    "amount": "634873474486112538",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x383Ea12347E56932E08638767B8A2B3c18700493",
+    "amount": "598833164569760286",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xe452181afc6233ce27d82feb5d3A35aF7BbDa57C",
+    "amount": "556285794415545262",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x4f82e73EDb06d29Ff62C91EC8f5Ff06571bdeb29",
+    "amount": "526078496054859866",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x96229bD2d8D33b33dDDE4fC9503c9ad6e8509e40",
+    "amount": "432011204292646204",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xc7f9ce1FfCfc73fF8700E7B58Ab9b87E9839D313",
+    "amount": "372520039230505084",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x0dd1F3a1C5E47cE5CF9283dBd25e199CBDD2B64F",
+    "amount": "224307948722379580",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xAf85Cc9Ab0c9d52c657661E47596f4106C7bfb61",
+    "amount": "182043214034212092",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xd31F6bCaD59E7F4d6F00bcc9c786981d7B10abFB",
+    "amount": "163002981871352647",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x1578f034078d5b5dc9D017AF75779aE436048415",
+    "amount": "152224713623430202",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x465bA1a17D280888EcD7200bd48547d791C39977",
+    "amount": "106703934026442503",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x922CCB256D9896b206e782670142228570C8B065",
+    "amount": "87352616836835290",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xaF96Ce1e1952B2308eb36515867E041f32490EF4",
+    "amount": "29987316083206494",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x98D1d755807c8E98824f003c402ab40C1A7e1847",
+    "amount": "26123079882887314",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x211A81532DcA439F5f044DDA65f1bA363ccA7A12",
+    "amount": "8258934738267647",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xAe5da9aD13fFBAa58Fab0041cbd45B4943aC1A7f",
+    "amount": "7758642195486268",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x4261d5923e8e3A0c6770ba6614ad9696D24CE5C5",
+    "amount": "6730141485861706",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x58f1101f3632f1D0544197351FbdEd673f4b43F1",
+    "amount": "5659687704998198",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x119030aD7E6FEa8f694782898038da2E768cF6BF",
+    "amount": "3997716894977168",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xad036a7E58dfa18A6511E85D29B0341E16bcBD9b",
+    "amount": "3812461881944444",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xA2b91a5aaC07535Ce39a7bfAc123C96F2368f6cc",
+    "amount": "2920597896005359",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x2e4C37A338F2CbE32EB161a99c6eEaE7D5D4b324",
+    "amount": "995831360444152",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xA3B583470A53aeb2848d9b24D0f385Be40CfA127",
+    "amount": "109330936029868",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x054e52917e5ad6c393FBB93B7cECdf001dAD69CA",
+    "amount": "84869736652799",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8A30Fe8DD7C1B8eE6fff8892731eD345b9E33B29",
+    "amount": "71338878475861",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xDe591aFd0f21bFe6f5674a6264e10daF535892fA",
+    "amount": "68709698855551",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x4C090A90878996a3d38b1eb2B17F5e00692c8FC7",
+    "amount": "39307723319181",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x175079d96B783C9e9CE35B33C2968b683531ea6B",
+    "amount": "24940634542657",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xD7FF20a8c5Ac84cf1aea70908F5d3CC36951d121",
+    "amount": "1640000000000",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x072E42363a9B15d1Ca01D48CD06E970Fa70eAC70",
+    "amount": "716380167961",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x67DaCc258DCCc8CbFB493c652ab5170C3CFf0AD9",
+    "amount": "691612734396",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x8eaE6474F8FeE5D15d2477fB05B59cdf0859878e",
+    "amount": "8",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0xfD3052E6f192B4a059411D243088518c4F57a84d",
+    "amount": "8",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x019394942Ba09254D96918c136d387C7209E7208",
+    "amount": "3",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x507b31568522F92bC98C4E31374D8F4973C7F6E0",
+    "amount": "2",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x15B9a8afA179dD66607Db3c801058dDf9f9A7E63",
+    "amount": "1",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  },
+  {
+    "address": "0x0000000000CC1FFB95df1486af6dacb26D6D1Af0",
+    "amount": "1",
+    "amountLp": "0",
+    "amountEsmpx": "0",
+    "isContract": false
+  }
+]
