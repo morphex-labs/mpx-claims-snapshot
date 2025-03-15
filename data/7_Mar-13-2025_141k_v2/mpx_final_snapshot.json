@@ -7351,13 +7351,13 @@
   },
   {
     "address": "0xd9f06283d9b70a81f1eb81b1d06e9cf160b85de3",
-    "amountUsdcAirdrop": 3.083055,
+    "amountUsdcAirdrop": 3.082254,
     "mpxOnFtm": 440.02,
     "mpxLpOnFtm": 0.0,
     "esmpxOnFtm": 0.0,
     "mpxOnBsc": 0.0,
     "mpxLpOnBsc": 0.0,
-    "percent": 0.002187
+    "percent": 0.002186
   },
   {
     "address": "0x14a6d5bb336657a39a70b826b83b136626d0bedf",
@@ -11540,21 +11540,21 @@
     "percent": 0.000715
   },
   {
-    "address": "0x11aff4f1ab8bbe4aaa32af2d2bb68d6c211fc040",
-    "amountUsdcAirdrop": 1.003553,
-    "mpxOnFtm": 143.27,
+    "address": "0x8d02f47ada375c301186fd212947f84097be852a",
+    "amountUsdcAirdrop": 1.004094,
+    "mpxOnFtm": 0.0,
     "mpxLpOnFtm": 0.0,
-    "esmpxOnFtm": 0.0,
+    "esmpxOnFtm": 286.46,
     "mpxOnBsc": 0.0,
     "mpxLpOnBsc": 0.0,
     "percent": 0.000712
   },
   {
-    "address": "0x8d02f47ada375c301186fd212947f84097be852a",
-    "amountUsdcAirdrop": 1.003293,
-    "mpxOnFtm": 0.0,
+    "address": "0x11aff4f1ab8bbe4aaa32af2d2bb68d6c211fc040",
+    "amountUsdcAirdrop": 1.003553,
+    "mpxOnFtm": 143.27,
     "mpxLpOnFtm": 0.0,
-    "esmpxOnFtm": 286.46,
+    "esmpxOnFtm": 0.0,
     "mpxOnBsc": 0.0,
     "mpxLpOnBsc": 0.0,
     "percent": 0.000712
