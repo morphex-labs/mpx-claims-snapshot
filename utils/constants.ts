@@ -94,5 +94,8 @@ export type MpxHolder = {
   address: string;
   amount: string;
   amountLp: string;
+  amountEsmpx: string;
   isContract: Boolean;
 };
+
+export const esMPX = "0xe0f606e6730bE531EeAf42348dE43C2feeD43505";

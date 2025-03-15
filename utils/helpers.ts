@@ -98,6 +98,7 @@ export async function snapshotERC20(
           address: account,
           amount: BigInt(0).toString(),
           amountLp: BigInt(0).toString(),
+          amountEsmpx: BigInt(0).toString(),
           isContract: false,
         });
       }

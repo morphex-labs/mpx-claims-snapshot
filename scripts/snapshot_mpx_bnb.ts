@@ -82,6 +82,7 @@ async function snapshotHolders(snapshotBlock: number): Promise<MpxHolder[]> {
         address: key,
         amount: balances[key].toString(),
         amountLp: BigInt(0).toString(),
+        amountEsmpx: BigInt(0).toString(),
         isContract: false,
       });
     }
@@ -99,7 +100,7 @@ async function saveSnapshotAsJson(
   snapshotBlock: BigNumberish,
   final: boolean = false
 ) {
-  let ownersJson = JSON.stringify(data);
+  let ownersJson = JSON.stringify(data, null, 2);
   let path = final
     ? `data/mpx_bnb_snapshot_${snapshotBlock}.json`
     : `data/mpx_bnb_raw_snapshot_${snapshotBlock}.json`;
@@ -112,6 +113,7 @@ function checkSnapshotCorrectness(data: MpxHolder[], totalSupply: bigint) {
   for (var i = 0; i < data.length; i++) {
     sum += BigInt(data[i].amount);
     sum += BigInt(data[i].amountLp);
+    // esMPX is a separate token so we don't include it in the MPX total supply check
   }
   if (sum == totalSupply) {
     console.log("Snapshot data is OK");
@@ -211,8 +213,8 @@ async function changeLpToMpxAmounts(totalSupply: bigint) {
 
 function sortHolders(holders: MpxHolder[]) {
   holders.sort((a: MpxHolder, b: MpxHolder) => {
-    let aMount: bigint = BigInt(a.amount) + BigInt(a.amountLp);
-    let bMount: bigint = BigInt(b.amount) + BigInt(b.amountLp);
+    let aMount: bigint = BigInt(a.amount) + BigInt(a.amountLp) + BigInt(a.amountEsmpx || 0);
+    let bMount: bigint = BigInt(b.amount) + BigInt(b.amountLp) + BigInt(b.amountEsmpx || 0);
     if (aMount > bMount) return -1;
     else if (aMount < bMount) return 1;
     else return 0;
@@ -287,7 +289,7 @@ async function main() {
 
   // Filter out previous holders
   holders = holders.filter(
-    (holder) => BigInt(holder.amount) + BigInt(holder.amountLp) > 0
+    (holder) => BigInt(holder.amount) + BigInt(holder.amountLp) + BigInt(holder.amountEsmpx || 0) > 0
   );
 
   console.log("Marking contracts...");

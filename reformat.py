@@ -17,8 +17,9 @@ def reformat_json(input_file, ftm_raw_file, bnb_raw_file, output_file):
     for item in ftm_raw_data:
         addr = item.get("address", "").lower()
         ftm_dict[addr] = {
-            "amount": item.get("amount"),
-            "amountLp": item.get("amountLp")
+            "amount": item.get("amount", "0"),
+            "amountLp": item.get("amountLp", "0"),
+            "amountEsmpx": item.get("amountEsmpx", "0")
         }
 
     with open(bnb_raw_file, 'r') as f:
@@ -40,9 +41,10 @@ def reformat_json(input_file, ftm_raw_file, bnb_raw_file, output_file):
         item.pop("amount", 0)
         address_lower = item.get("address", "").lower()
 
-        ftm_info = ftm_dict.get(address_lower, {"amount": 0, "amountLp": 0})
+        ftm_info = ftm_dict.get(address_lower, {"amount": 0, "amountLp": 0, "amountEsmpx": 0})
         item["mpxOnFtm"] = round(float(ftm_info["amount"])/1e18, 2)
         item["mpxLpOnFtm"] = round(float(ftm_info["amountLp"])/1e18, 2)
+        item["esmpxOnFtm"] = round((float(ftm_info["amountEsmpx"])*2)/1e18, 2)
 
         bnb_info = bnb_dict.get(address_lower, {"amount": 0, "amountLp": 0})
         item["mpxOnBsc"] = round(float(bnb_info["amount"])/1e18, 2)
